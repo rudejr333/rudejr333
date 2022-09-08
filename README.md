@@ -8,3 +8,5 @@
 rudejr333/rudejr333 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
+
+대충 이것 저것 올려놓고 연습 용
