@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Swiper 쉬운 예제 모음 : Swiper 네비게이션 (Navigation) + 페이징 (Pagination) 적용</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>	
+	<style>
+		.swiper-container { width: 100%;height:600px;}
+		.swiper-slide { text-align: center; font-size: 18px;display: flex; justify-content: center; align-items: center; }
+		.slide01 { background: url('image/1.png') no-repeat center center/cover;}
+		.slide02 { background: url('image/2.png') no-repeat center center/cover;}
+		.slide03 { background: url('image/3.png') no-repeat center center/cover;}
+	</style>
+</head>
+<body>
+<div id="aim_high_mid">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+	  <div class="swiper-slide slide01"></div>
+      <div class="swiper-slide slide02"></div>
+      <div class="swiper-slide slide03"></div>
+    </div>
+    <div class="swiper-navigation">
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+var swiper = new Swiper('#aim_high_mid .swiper-container', {
+  speed: 500,
+  	slidesPerView:'1.2',
+	initialSlide :0,
+	spaceBetween : -2,
+	centeredSlides: true,
+   navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  on: {
+    click: function () {
+		/* $('.swiper-slide-active').hasClass('slide01') ? 
+		$('.swiper-container').css('background','red') : 
+		$('.swiper-slide-active').hasClass('slide02') ?
+		$('.swiper-container').css('background','pink'):'' */
+    }
+  }
+});
+
+</script>
+
+<!-- 예제 종료 -->
+
+
+</body>
+</html>

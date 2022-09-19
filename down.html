@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form id="test">
+        <fieldset>
+            <legend>멀티파일 다운로드</legend>
+            <div>
+                <input type="checkbox" name="file1" id="file1" value="/test1.zip"/><label for="file1">test1.zip</label>
+            </div>
+            <div>
+                <input type="checkbox" name="file2" id="file2" value="/test2.zip"/><label for="file2">test2.zip</label>
+            </div>
+            <div>
+                <input type="checkbox" name="file3" id="file3" value="/test3.zip"/><label for="file3">test3.zip</label>
+            </div>
+            <br>
+            <input type="button" value="Dowload All" onclick="suffix=1;downloadAll(this,form);return false"/>
+        </fieldset>
+    </form>
+</body>
+<script>
+    let suffix = 1;
+    function downloadAll(oFrm) {
+        console.log(oFrm.elements);
+        let oChk = oFrm.elements["file" + (suffix++)];
+        
+        if(oChk){
+            if(oChk.checked){
+                location.href = "http://oneway.com/files/test/"+oChk.value;
+                setTimeout(function(){
+                    downloadAll(oFrm);
+                }, 1000);
+            }else{
+                downloadAll(oFrm);
+            }
+        }
+    }
+</script>
+
+</html>

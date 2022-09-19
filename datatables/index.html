@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/> 
+    <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+    <script>
+        jQuery(function($){
+            $("#foo-table").DataTable();
+        });
+    </script>
+    <title></title>
+</head>
+<body>
+	<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>지역</th>
+                <th>버튼</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>지역</th>
+                <th>버튼</th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+	<div id="pop_bg" style="position: absolute;
+    top: 248px;
+    left: 50%;
+    border: solid;
+    background: wheat;
+    width: 237px;
+    height: 150px;">
+		팝업입니다.
+		<span onclick="$('#pop_bg').css('display','none');">닫기</span>
+		<div id="pop">
+
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+/* $(document).ready(function () {
+    $('#example').DataTable({
+        ajax: './data.json',
+        columns: [
+            { data: 'id' },
+            { data: 'name' },
+            { data: 'location' },
+        ],
+    });
+}); */
+
+$(document).ready(function () {
+    var table = $('#example').DataTable({
+        ajax: './data.json',
+		columns: [
+            { data: 'id' },
+            { data: 'name' },
+            { data: 'location' },
+        ],
+        columnDefs: [
+            {
+                targets: 3,
+                defaultContent: '<button>Click!</button>',
+            },
+        ],
+    });
+ 
+    $('#example tbody').on('click', 'button', function () {
+        var data = table.row($(this).parents('tr')).data();
+		console.log(data);
+		document.getElementById('pop').innerHTML =`
+			<tr><td>아이디 : ${data.id}</td><td>${data.name}</td><td>${data.location}</td></tr>`;
+		$('#pop_bg').css('display','block');
+        /* alert('아이디 ' + data.id + "이름 " + data.name + "지역" + data.location); */
+
+		/* fetch('./data.json')
+		.then(res =>{
+			return res.json();
+		})
+		.then(data =>{
+			console.log(data);
+			console.log(data.data.length);
+			$("#foo-table").DataTable();
+			for(let i=0; i <=data.data.length;i++){
+				document.getElementById('pop').innerHTML =`
+				<tr><td>${i}</td><td>${data.data[i].location}</td></tr>
+			`;
+			}
+			
+		})
+		.catch(err => {
+			console.log('Fatch Error',err);
+		}); */
+    });
+});
+
+
+
+/* gyong */
+/* fetch('./data.json')
+	.then(res =>{
+		return res.json();
+	})
+	.then(data =>{
+		console.log(data);
+		console.log(data[0].id);
+		console.log(data.length);
+		$("#foo-table").DataTable();
+		for(let i=0; i <=data.length;i++){
+			document.querySelector('.tbody_a').innerHTML +=`
+			<tr><td>${i}</td><td>${data[i].location}</td></tr>
+		`;
+		}
+		
+	})
+	.catch(err => {
+		console.log('Fatch Error',err);
+	});
+ */
+/* jQuery(function($){ 
+	$("#foo-table").DataTable({
+		ajax : {
+			url:"./data.json",
+			dataSrc: ''
+		},
+		columns: [
+			{ data: 'id'},
+			{ data: 'name'},
+			{ data: 'location'},
+		]
+	});
+	
+}); */
+
+/* var table = $("#foo-table").DataTable();
+table.destroy();
+
+$.ajax({
+  url:"./data.json",
+  dataType:'json',
+  success:function(data){
+ 	 $("#foo-table").dataTable({
+		data: data,
+		columns: [
+			{ data: 'id' },
+			{ data: 'name' }
+		]
+  	});
+
+    },error:function(request, status, error){
+    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+    }
+}); */
+</script>

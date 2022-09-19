@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 형태 만들기</title>
+</head>
+<body>
+
+
+<script>
+
+const aimhigh2_lt_listUrl = {
+        '1858':'https://c11.kr/11cte', 
+        '2272':'https://c11.kr/11c2c', 
+        '1859':'https://c11.kr/11ctf', 
+        '2273':'https://c11.kr/11968', 
+        '1860':'https://c11.kr/11cth', 
+        '2274':'https://c11.kr/11c2e', 
+        '1861':'https://c11.kr/11ctk', 
+        '2275':'https://c11.kr/11c2g', 
+        '1713':'https://c11.kr/11ctl', 
+        '2276':'https://c11.kr/11c2i', 
+        '1863':'https://c11.kr/11ctm', 
+        '1864':'https://c11.kr/11ctn', 
+        '2277':'https://c11.kr/11c2k', 
+        '2278':'https://c11.kr/11c2l', 
+        '1867':'https://c11.kr/11cto', 
+        '2279':'https://c11.kr/11c2m', 
+        '1868':'https://c11.kr/11ctp', 
+        '1880':'https://c11.kr/11c2n', 
+        '1869':'https://c11.kr/11ctq', 
+        '2281':'https://c11.kr/11c2o'
+    };
+
+productList = [{
+0: {lt_id: 1560, text_sid: '합격 진단 리포트'},
+1: {lt_id: 1865, text_sid: ''},
+2: {lt_id: 1858, text_sid: ' 고1·2 진로/진학 컨설팅'},
+3: {lt_id: 1859, text_sid: '고3 출발점 컨설팅'},
+4: {lt_id: 1860, text_sid: '고1·2 학생부종합 컨설팅'},
+5: {lt_id: 1861, text_sid: '고3 학생부종합 컨설팅'},
+6: {lt_id: 1863, text_sid: '자기소개서 1~2항목 완성권'},
+7: {lt_id: 1864, text_sid: '자기소개서 3항목 완성권'},
+8: {lt_id: 1865, text_sid: '자기소개서 끝장 특강 [특강 첨삭 컨설팅]'},
+9: {lt_id: 1870, text_sid: '수시전략 패키지 (수시전략 컨설팅   자기소개서 1~2항목 완성권)'},
+length: 10}];
+
+let purchaseList = [];
+let productName = {};
+let productCode = [];
+
+for(const key in data.data){
+    purchaseList.push(Number(key));
+}
+
+for(const item of productList){
+    productName[item.lt_id] = item.ca_name;
+    productCode.push(item.lt_id);
+};
+
+purchaseList = purchaseList.filter(x => productCode.includes(x));
+for(let i=0 ; purchaseList.length > i ; i++){
+    aimhigh2_reservation.innerHTML += `<a class='aimhigh_order' href='${data.data[purchaseList[i]]}' target='_blank'>${productName[purchaseList[i]]}</a>`;
+}
+
+</script>
+
+
+</body>
+</html>

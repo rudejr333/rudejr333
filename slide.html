@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Slide Project</title>
+  <style>
+    html, body { box-sizing: border-box; padding: 0; margin: 0; text-align: center; }
+    *, *:before, *:after { box-sizing: inherit; }
+    .clearfix:after { content: ''; display: block; clear: both; float: none; }
+    .title { margin-bottom: 0; text-align: center; font-size: 30px; color: #333; }
+    .link, .link:visited { display: inline-block; margin: 20px 0; color: #555; text-decoration: none; font-weight: bold; }
+    .link:hover, .link:focus { color: #9fd6c2; }
+    /* container - body */
+    #container { width: 1000px; margin: auto; }
+    .slide_wrap { position: relative; width: 400px; margin: auto; padding-bottom: 30px; }
+    .slide_box { width: 100%; margin: auto; overflow-x: hidden; }
+    .slide_content { display: table; float: left; width: 400px; height: 400px; }
+    .slide_content > p { display: table-cell; vertical-align: middle; text-align: center; font-size: 100px; font-weight: bold; color: #555; }
+    .slide_content.slide01 { background: #ddbdff; }
+    .slide_content.slide02 { background: #9fd6c2; }
+    .slide_content.slide03 { background: #abe2f7; }
+    .slide_content.slide04 { background: #f08c78; }
+    .slide_content.slide05 { background: #fbdb65; }
+    .slide_btn_box > button { position: absolute; top: 50%; margin-top: -45px; width: 60px; height: 60px; font-size: 16px; color: #999; background: none; border: 1px solid #ddd; cursor: pointer; }
+    .slide_btn_box > .slide_btn_prev { left: -100px; }
+    .slide_btn_box > .slide_btn_next { right: -100px; }
+    .slide_pagination { position: absolute; left: 50%; bottom: 0; list-style: none; margin: 0; padding: 0; transform: translateX(-50%); }
+    .slide_pagination .dot { display: inline-block; width: 15px; height: 15px; margin: 0 5px; overflow: hidden; background: #ddd; border-radius: 50%; transition: 0.3s; }
+    .slide_pagination .dot.dot_active { background: #333; }
+    .slide_pagination .dot a { display: block; width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <h1 class="title">Carousel Project</h1>
+  <a href="https://im-developer.tistory.com/97" class="link" target="_blank">Visit blog - im-developer.tistory.com</a>
+  
+  <div id="container">
+    <div class="slide_wrap">
+      <div class="slide_box">
+        <div class="slide_list clearfix">
+            <div class="slide_content slide01">
+                <p>1</p>
+            </div>
+            <div class="slide_content slide02">
+                <p>2</p>
+            </div>
+            <div class="slide_content slide03">
+                <p>3</p>
+            </div>
+            <div class="slide_content slide04">
+                <p>4</p>
+            </div>
+            <div class="slide_content slide05">
+                <p>5</p>
+            </div>
+        </div>
+        <!-- // .slide_list -->
+      </div>
+      <!-- // .slide_box -->
+      <div class="slide_btn_box">
+        <button type="button" class="slide_btn_prev">Prev</button>
+        <button type="button" class="slide_btn_next">Next</button>
+      </div>
+      <!-- // .slide_btn_box -->
+      <ul class="slide_pagination"></ul>
+      <!-- // .slide_pagination -->
+    </div>
+    <!-- // .slide_wrap -->
+  </div>
+  <!-- // .container -->
+
+  <script>
+      const slideList = document.querySelector('.slide_list');  //전체 슬라이드 박스 현재 이미지 위치를 알기 위해 필요
+      const slideContents = document.querySelectorAll('.slide_content');  // 슬라이드 될 이미지 여역
+      const slideBtnNext = document.querySelector('.slide_btn_next'); // 다음 버튼
+      const slideBtnPrev = document.querySelector('.slide_btn_prev'); // 이전 버튼
+      const pagination = document.querySelector('.slide_pagination'); // 페이징 서클 부분
+      const slideLen = slideContents.length;  // 슬라이드 될 이미지 갯수
+      const slideWidth = 400; // slide width
+      const slideSpeed = 1000; // slide speed
+      const startNum = 0; // initial slide index (0 ~ 4)
+      
+      slideList.style.width = slideWidth * (slideLen + 2) + "px"; //기본 적으로 돌아갈 슬라이드 갯수는 5개지만 첫번째와 끝번째에 하나씩 추가 되어 +2개가 더 해짐. 슬라이드 박스의 총 길이(width)값 산출 적용
+      
+      // Copy first and last slide
+      let firstChild = slideList.firstElementChild; //첫번째 원본 이미지 준비
+      let lastChild = slideList.lastElementChild; // 마지막 원본 이미지 준비
+      let clonedFirst = firstChild.cloneNode(true); // 처음 클론 준비
+      let clonedLast = lastChild.cloneNode(true); // 마지막 클론 준비
+
+      // Add copied Slides
+      slideList.appendChild(clonedFirst); //슬라이드 박스 마지막에 첫번째 이미지 추가
+      slideList.insertBefore(clonedLast, slideList.firstElementChild); //슬라이드 박스 첫번째 이미지 추가
+        // 부모노드의 기준 점 노드 앞에 삽입 할 노드를 삽입합니다.
+        //부모노드.insertBefore(삽입 할 노드, 기준 점 노드);
+
+      // Add pagination dynamically
+      let pageChild = '';
+      for (var i = 0; i < slideLen; i++) {
+        pageChild += '<li class="dot';
+        pageChild += (i === startNum) ? ' dot_active' : '';
+        pageChild += '" data-index="' + i + '"><a href="#"></a></li>';
+      }
+      pagination.innerHTML = pageChild;
+      /* '<li class="dot dot_active" data-index="0">
+            <a href="#"></a>
+        </li>
+        <li class="dot" data-index="1">
+            <a href="#"></a>
+        </li>
+        <li class="dot" data-index="2">
+            <a href="#"></a>
+        </li>
+        <li class="dot" data-index="3">
+            <a href="#"></a>
+        </li>
+        <li class="dot" data-index="4">
+            <a href="#"></a>
+        </li>
+        <li class="dot" data-index="5">
+            <a href="#"></a>
+        </li>
+        <li class="dot" data-index="6">
+            <a href="#"></a>
+        </li>' 저렇게 생긴게 위에 구조로 들어감. 페이징이라서 필요하면 참고*/
+
+
+      const pageDots = document.querySelectorAll('.dot'); // 여기까지 페이징이 원래 7개 찍혀야함.
+
+      slideList.style.transform = "translate3d(-" + (slideWidth * (startNum + 1)) + "px, 0px, 0px)";
+      // 위에서 앞에 5번 이미지를 추가 하여 2번째 부터 시작해야함.
+
+      let curIndex = startNum; // current slide index (except copied slide)
+      let curSlide = slideContents[curIndex]; // current slide dom
+      curSlide.classList.add('slide_active');
+      //
+
+      /** Next Button Event */
+      let aaaa=1;
+      slideBtnNext.addEventListener('click', function() {
+        clearInterval(dls);
+        if(aaaa){
+          aaaa=0;
+          if (curIndex <= slideLen - 1) {
+            slideList.style.transition = slideSpeed + "ms";
+            slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 2)) + "px, 0px, 0px)";
+          }
+          if (curIndex === slideLen - 1) {
+            setTimeout(function() {
+              slideList.style.transition = "0ms";
+              slideList.style.transform = "translate3d(-" + slideWidth + "px, 0px, 0px)";
+            }, slideSpeed);
+            curIndex = -1;
+          }
+          curSlide.classList.remove('slide_active');
+          pageDots[(curIndex === -1) ? slideLen - 1 : curIndex].classList.remove('dot_active');
+          curSlide = slideContents[++curIndex];
+          curSlide.classList.add('slide_active');
+          pageDots[curIndex].classList.add('dot_active');
+          
+          setTimeout(function() {
+            aaaa = 1;
+            dls= setInterval(moveleft, slideSpeed);
+            }, slideSpeed);
+        }
+        
+      });
+
+    
+      
+      /** Prev Button Event */
+      slideBtnPrev.addEventListener('click', function() {
+        clearInterval(dls);
+        if(aaaa){
+          aaaa=0;
+        if (curIndex >= 0) {
+          slideList.style.transition = slideSpeed + "ms";
+          slideList.style.transform = "translate3d(-" + (slideWidth * curIndex) + "px, 0px, 0px)";
+        }
+        if (curIndex === 0) {
+          setTimeout(function() {
+            slideList.style.transition = "0ms";
+            slideList.style.transform = "translate3d(-" + (slideWidth * slideLen) + "px, 0px, 0px)";
+          }, slideSpeed);
+          curIndex = slideLen;
+        }
+        curSlide.classList.remove('slide_active');
+        pageDots[(curIndex === slideLen) ? 0 : curIndex].classList.remove('dot_active');
+        curSlide = slideContents[--curIndex];
+        curSlide.classList.add('slide_active');
+        pageDots[curIndex].classList.add('dot_active');
+        setTimeout(function() {
+            aaaa = 1;
+            dls= setInterval(moveleft, slideSpeed);
+        }, slideSpeed);
+      }
+      });
+
+      /** Pagination Button Event */
+      let curDot;
+      Array.prototype.forEach.call(pageDots, function (dot, i) {
+        dot.addEventListener('click', function (e) {
+          e.preventDefault();
+          curDot = document.querySelector('.dot_active');
+          curDot.classList.remove('dot_active');
+          
+          curDot = this;
+          this.classList.add('dot_active');
+
+          curSlide.classList.remove('slide_active');
+          curIndex = Number(this.getAttribute('data-index'));
+          curSlide = slideContents[curIndex];
+          curSlide.classList.add('slide_active');
+          slideList.style.transition = slideSpeed + "ms";
+          slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 1)) + "px, 0px, 0px)";
+          clearInterval(dls);
+          dls= setInterval(moveleft, slideSpeed);
+        });
+      });
+        function moveleft() {
+          if (curIndex < slideLen - 1) {
+            slideList.style.transition = slideSpeed + "ms";
+            slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 2)) + "px, 0px, 0px)";
+          }
+          if (curIndex === slideLen - 1) {
+            slideList.style.transition = slideSpeed + "ms";
+            slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 2)) + "px, 0px, 0px)";
+            setTimeout(function() {
+              slideList.style.transition = "0ms";
+              slideList.style.transform = "translate3d(-" + slideWidth + "px, 0px, 0px)";
+            }, slideSpeed);
+            clearInterval(dls);
+            curIndex = -1;
+            dls= setInterval(moveleft, slideSpeed*1.02);
+          }
+          curSlide.classList.remove('slide_active');
+          pageDots[(curIndex === -1) ? slideLen - 1 : curIndex].classList.remove('dot_active');
+          curSlide = slideContents[++curIndex];
+          curSlide.classList.add('slide_active');
+          pageDots[curIndex].classList.add('dot_active');
+        }
+        let dls= setInterval(moveleft, slideSpeed);
+
+        /* function moveleft() {
+          clearInterval(dls);
+          if(aaaa){
+            aaaa=0;
+            if (curIndex <= slideLen - 1) {
+              slideList.style.transition = slideSpeed + "ms";
+              slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 2)) + "px, 0px, 0px)";
+            }
+            if (curIndex === slideLen - 1) {
+              setTimeout(function() {
+                slideList.style.transition = "0ms";
+                slideList.style.transform = "translate3d(-" + slideWidth + "px, 0px, 0px)";
+              }, slideSpeed);
+              curIndex = -1;
+            }
+            curSlide.classList.remove('slide_active');
+            pageDots[(curIndex === -1) ? slideLen - 1 : curIndex].classList.remove('dot_active');
+            curSlide = slideContents[++curIndex];
+            curSlide.classList.add('slide_active');
+            pageDots[curIndex].classList.add('dot_active');
+            
+            setTimeout(function() {
+              aaaa = 1;
+              dls= setInterval(moveleft, slideSpeed);
+              }, slideSpeed);
+          }
+        } */
+        
+
+    
+  </script>
+</body>
+</html>

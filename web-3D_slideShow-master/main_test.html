@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Swiper 쉬운 예제 모음 : Swiper 네비게이션 (Navigation) + 페이징 (Pagination) 적용</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+
+</head>
+<body style="background: #101941;">
+
+<div>
+<img src="image/7.png" style="width:100%">
+</div>
+
+
+<!-- 예제 시작 -->
+
+<!-- 이 예제에서는 필요한 js, css 를 링크걸어 사용 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+
+
+<style type="text/css">
+
+.swiper-container {
+	width:1080px;
+}
+.swiper-slide {
+	text-align:center;
+	display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
+	align-items:center; /* 위아래 기준 중앙정렬 */
+	justify-content:center; /* 좌우 기준 중앙정렬 */
+}
+.swiper-slide img {
+	box-shadow:0 0 5px #555;
+	width:100%;
+}
+
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+	background-image: url(image/9.png);
+}
+#aa{position: fixed;
+    bottom: 20px;
+    width: 100%;
+	z-index: 5;
+    }
+#aa>div{font-size: 20px;
+    margin: auto;
+    border: solid white;
+    border-radius: 18px;
+    width: 40%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    background: #40cadd;
+    font-weight: bold;}
+</style>
+
+<!-- 클래스명은 변경하면 안 됨 -->
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide"><img src="image/4.png"></div>
+		<div class="swiper-slide"><img src="image/5.png"></div>
+		<div class="swiper-slide"><img src="image/6.png"></div>
+	</div>
+
+	<!-- 네비게이션 버튼 -->
+	<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+	<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+
+	<!-- 페이징 -->
+	<!-- <div class="swiper-pagination"></div> -->
+</div>
+<div>
+	<img src="image/8.png" style="width:100%">
+</div>
+<div id="aa">
+	<div>상품 구매하기</div>
+</div>
+
+<script>
+
+/* let swp_main_youtube = new Swiper('.swiper-container', {
+	pagination : { // 페이징 설정
+		el : '.swiper-pagination',
+		clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+	},
+	navigation : { // 네비게이션 설정
+		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+	},
+	autoplay: true,
+	
+});*/
+
+
+
+let swp_main_youtube = new Swiper('.swiper-container', {
+spaceBetween : 30, // 슬라이드간 간격
+
+// 그룹수가 맞지 않을 경우 빈칸으로 메우기
+// 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
+loopFillGroupWithBlank : true,
+
+loop : true, // 무한 반복
+
+/* pagination : { // 페이징
+	el : '.swiper-pagination',
+	clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+}, */
+navigation : { // 네비게이션
+	nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+	prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+},
+autoplay: true,
+});
+
+$('.swiper-container').on('mouseover', function(){
+	swp_main_youtube.autoplay.stop();
+});
+$('.swiper-container').on('mouseout', function(){
+	swp_main_youtube.autoplay.start();
+}); 
+
+</script>
+
+<!-- 예제 종료 -->
+
+
+</body>
+</html>
