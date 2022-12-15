@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- <script src="https://www.yanadoo.co.kr/promotion-landing/common/js/confetti.browser.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-confetti@2/tsparticles.preset.confetti.bundle.min.js"></script>
+
+    <title>Document</title>
+    <style>
+.key-point-col{position:relative; padding:12rem 0; text-align:center; background-color:#f1e8d6;}
+      .key-point-col.on .key-title{animation:flipInX 1s forwards;}
+      .key-point-col h3{font-size:6rem;}
+      .key-point-col h3 em{display:block; width:17rem; height:5rem; margin:0 auto 3rem; line-height:5rem; font-size:2.2rem; color:#fff; text-align:center; background-color:#3f6358; border-radius:10rem;}
+      .key-point-col h3 + p{margin-top:2rem; font-size:2.6rem;}
+      .key-point-col ul{padding:0 13rem; margin-top:7rem;}
+      .key-point-col ul li{margin:2rem 0; padding:4.3rem 8rem 3.7rem; font-size:2.85rem; text-align:left; letter-spacing:-0.1rem; background-color:#fff; border-radius:1rem;}
+      .key-point-col ul li strong{font-size:3.4rem;}
+      .key-point-col ul li .num{display:inline-block; width:4.8rem; height:4.8rem; margin-right:2.5rem; padding:1.3rem 0; font-weight:700; font-size:2.5rem; color:#fff; background-color:#3f6358; text-align:center; border-radius:50%; box-sizing:border-box;}
+      .key-point-col ul li .import{display:inline;}
+      .key-point-col canvas{position:absolute; top:0; left:0; width:100%; height:100%;}
+      @keyframes flipInX{
+        0%{transform:perspective(400px) rotateX(90deg); opacity:0;}
+        50%{transform:perspective(400px) rotateX(0);}
+        70%{transform:perspective(400px) rotateX(10deg);}
+        100%{transform:perspective(400px) rotateX(0deg); opacity:1;}
+      }
+
+</style>
+</head>
+<body>
+<section class="key-point-col" id="keyPoint">
+        <div class="inner-col">
+          <div class="key-title">
+            <h3><em>Key Point</em>야나두 영어가 압도적인 이유</h3>
+            <p>완강을 부르는 야나두만의 3가지 시스템</p>
+          </div>
+          <ul>
+            <li><span class="num">1</span>야나두에는 집요한 <div class="import"><strong>10분 연구소</strong>가 있습니다</div></li>
+            <li><span class="num">2</span>10분만에 50문장이 가능한 <div class="import"><strong>마법의 패턴 영어</strong>가 있습니다</div></li>
+            <li><span class="num">3</span>끝까지 완강할 수 있는 <div class="import"><strong>동기부여 시스템</strong>이 있습니다</div></li>
+          </ul>
+        </div>
+        <canvas data-generated="true">
+
+
+<script>
+
+let scrollCheck = true;
+      let myCanvas = document.createElement('canvas');
+      document.getElementById('keyPoint').appendChild(myCanvas);
+
+        /* const jsConfetti = new JSConfetti({ myCanvas })
+        setTimeout(() => {
+        jsConfetti.addConfetti({
+            confettiRadius: 1,
+        })
+        }, 500) */
+
+        const jsConfetti =  async function JSConfetti() {
+                await loadConfettiPreset(tsParticles);
+
+                await tsParticles.load("keyPoint", {
+                  particles: {
+                  color: {
+                    value: ["#ff8000 ", "#FFEC00 ","#FFA143"],
+                  },
+                  shape: {
+                    "type": "circle"
+                  },
+                  
+                },
+                
+                /* emitters: [
+                  {
+                    particles: {
+                    move: {
+                      direction: "top",
+                      "drift": 1,
+                      "angle": {
+                        "offset": 0,
+                        "value": 90
+                      },
+                    },
+                  },
+                  "startCount": 250,
+                  "position": {
+                    "x": 50,
+                    "y": 50
+                  },
+                  "size": {
+                    "width": 0,
+                    "height": 0
+                  },
+                  "rate": {
+                    "delay": 0,
+                    "quantity": 0
+                  },
+                  "life": {
+                    "duration": 5,
+                    "count": 1
+                  },
+                  "wobble": {
+                  "distance": 30,
+                  "enable": true,
+                  "speed": {
+                    "angle": {
+                      "min": -15,
+                      "max": 15
+                    },
+                    "move": 10
+                  }
+                },
+                }
+                ], */
+                emitters: [
+                {
+                  "startCount": 250,
+                  life: {
+                    duration: 0,
+                    count: 1,
+                  },
+                  position: {
+                    x: 0,
+                    y: 30,
+                  },
+                  particles: {
+                    move: {
+                      direction: "top-right",
+                    },
+                  },
+                  "size": {
+                    "width": 0,
+                    "height": 0
+                  },
+                  "rate": {
+                    "delay": 0,
+                    "quantity": 0
+                  },
+                },
+                {
+                  "startCount": 250,
+                  life: {
+                    duration: 0,
+                    count: 1,
+                  },
+                  position: {
+                    x: 100,
+                    y: 30,
+                  },
+                  particles: {
+                    move: {
+                      direction: "top-left",
+                    },
+                  },
+                  "size": {
+                    "width": 0,
+                    "height": 0
+                  },
+                  "rate": {
+                    "delay": 0,
+                    "quantity": 0
+                  },
+                },
+              ],
+                
+                preset: "confetti",
+                });
+            };
+
+      let scrollSave = 0
+      function scrollActive(tagName) {
+        let element = document.querySelector(tagName);
+        let keyPointTop = element.getBoundingClientRect().top;
+        let keyPointBottom = element.getBoundingClientRect().bottom;
+
+        if(0 >= keyPointTop - window.innerHeight / 4 && keyPointTop > 0){
+          if(scrollCheck){
+            $('.key-point-col').addClass('on');
+            jsConfetti();
+            scrollCheck = false;
+          }
+        } else if(scrollSave < window.scrollY){
+          $('.key-point-col').removeClass('on');
+          scrollCheck = true;
+        }
+        
+        scrollSave = window.scrollY;
+      }
+
+      $(window).scroll(function(){
+        scrollActive('#keyPoint');
+      });
+</script>
+</html>

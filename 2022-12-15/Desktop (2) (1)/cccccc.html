@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <title>Document</title>
+    <style>
+.key-point-col{padding: 15%;position:relative; text-align:center; }
+      .key-point-col.on .key-title{animation:flipInX 1s forwards;}
+      .key-point-col canvas{position:absolute; top:0; left:0; width:100%; height:100%;}
+      @keyframes flipInX{
+        0%{transform:perspective(400px) rotateX(90deg); opacity:0;}
+        50%{transform:perspective(400px) rotateX(0);}
+        70%{transform:perspective(400px) rotateX(10deg);}
+        100%{transform:perspective(400px) rotateX(0deg); opacity:1;}
+      }
+
+</style>
+</head>
+<body>
+<div style="padding: 10%;">
+<img src="aaaa.png" alt="" style="width: 100%; height: 100%;">
+</div>
+<img src="aaaa.png" alt="" style="width: 100%; height: 100%;">
+</div>
+<section class="key-point-col" id="keyPoint" style="background: beige;">
+  <img src="ff.png" alt="" style="position: relative;/* width: 100%; *//* height: 100%; *//* left: 0; */z-index: 999999;">
+  <div style="width:1060px;height:614px;display: flex;margin: auto;">
+    <img src="cc.png" alt="" style="/* position: relative; */width: 50%;height: 50%;z-index: 999999;/* background: beige; */">
+    <img src="vv.png" alt="" style="/* position: relative; */width: 50%;height: 50%;z-index: 999999;/* background: beige; */margin-left: 20px;">
+  </div>
+</section>
+<script>
+
+let scrollCheck = true;
+      let myCanvas = document.createElement('canvas');
+      document.getElementById('keyPoint').appendChild(myCanvas);
+
+        const jsConfetti = new JSConfetti({ myCanvas })
+        /* setTimeout(() => {
+        jsConfetti.addConfetti({
+            confettiColors: [
+            "#ff8000 ", "#FFEC00 ","#FFA143",
+          ],
+        })
+        }, 500) */
+
+        /* async function JSConfetti() {
+                await loadConfettiPreset(tsParticles);
+
+                await tsParticles.load("keyPoint", {
+                    preset: "confetti",
+                });
+            }(); */
+
+      let scrollSave = 0
+      function scrollActive(tagName) {
+        let element = document.querySelector(tagName);
+        let keyPointTop = element.getBoundingClientRect().top;
+        let keyPointBottom = element.getBoundingClientRect().bottom;
+
+        if(0 >= keyPointTop - window.innerHeight / 4 && keyPointTop > 0){
+          if(scrollCheck){
+            $('.key-point-col').addClass('on');
+            jsConfetti.addConfetti({
+            confettiColors: [
+            "#ff8000 ", "#FFEC00 ","#FFA143",
+          ],
+          confettiRadius: 10,
+          confettiNumber: 80,
+        })
+            scrollCheck = false;
+          }
+        } else if(scrollSave < window.scrollY){
+          $('.key-point-col').removeClass('on');
+          scrollCheck = true;
+        }
+        
+        scrollSave = window.scrollY;
+      }
+
+      $(window).scroll(function(){
+        scrollActive('#keyPoint');
+      });
+</script>
+</html>

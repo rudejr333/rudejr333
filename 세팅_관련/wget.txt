@@ -1,0 +1,10 @@
+https://koromoon.blogspot.com/2021/12/wget.html
+
+wget 사용방법
+
+이동
+cd C: 이동 경로
+
+wget -i 텍스트 파일 이름
+
+$ cat ./abc.txt | xargs wget

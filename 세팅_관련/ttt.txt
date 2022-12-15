@@ -1,0 +1,20 @@
+1.
+iniRefund
+print "<script> alert('처리되었습니다.'); location.href='../popup/_order_detail_su.php?fo_id=$_POST[y_val]'; </script>"
+
+_order_detail_su
+<form name="dform" id="dform" action="../act/iniRefund.php?m=del" method="post">
+	<input type="hidden" name="delidx" id="delidx" value="">
+	<input type="hidden" name="y_val" value="<?=$_GET[fo_id]?>">
+</form>
+
+
+2.
+iniRefund
+print "<script> parent.location.reload(); </script>";
+
+<form name="dform" id="dform" action="../act/iniRefund.php?m=del" method="post">
+target="aa"
+
+<iframe name="aa" frameborder="0" style="width: 0;height: 0;"></iframe>
+

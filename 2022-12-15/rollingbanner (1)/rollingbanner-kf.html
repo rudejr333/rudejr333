@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Banner Keyframes Version</title>
+    <link rel="stylesheet" href="./rollingbanner-kf.css">
+    <script>
+		window.addEventListener("load", event => {
+        //DOM 생성 후
+		let roller = document.querySelector('.roller');
+		let aaa = document.querySelector('.roller ul').clientHeight;
+		let height_lol = document.querySelector('.wrap');
+		let clone = roller.cloneNode(true);
+
+		let image = document.querySelector('.roller img');
+ 		let isLoaded = image.complete && image.naturalHeight !== 0;
+			roller.id = 'roller1';
+			clone.id = 'roller2';
+            document.querySelector('.wrap').appendChild(clone);
+			document.querySelector('#roller1').style.left = '0px';
+            document.querySelector('#roller2').style.left = document.querySelector('.roller ul').offsetWidth+'px';
+            roller.classList.add('original');
+            clone.classList.add('clone');
+			height_lol.style.height = aaa+'px';
+        });
+    </script>
+</head>
+<body>
+<div class="wrap">
+	<div class="roller">
+		<ul>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin1.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin2.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin3.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin4.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin5.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin6.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin7.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin8.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin9.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin10.png" alt=""></li>
+		</ul>
+	</div>
+</div>
+<div class="AdotReal_slide_Public" id="AdotReal_slide_box1">
+	<div class="AdotReal_slide_roller">
+		<ul>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin1.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin2.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin3.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin4.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin5.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin6.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin7.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin8.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin9.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin10.png" alt=""></li>
+		</ul>
+	</div>
+</div>
+<div class="AdotReal_slide_Public" id="AdotReal_slide_box2">
+	<div class="AdotReal_slide_roller">
+		<ul>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin1.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin2.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin3.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin4.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin5.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin6.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin7.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin8.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin9.png" alt=""></li>
+			<li><img src="https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/AdotReal/AdotReal_slide_naesin10.png" alt=""></li>
+		</ul>
+	</div>
+</div>
+<script>
+		window.addEventListener("load", event => {
+        //DOM 생성 후
+		let roller = document.querySelectorAll('.AdotReal_slide_roller');
+		let slide_roller_height = document.querySelector('.AdotReal_slide_roller ul').clientHeight;
+		let height_lol = document.querySelectorAll('.AdotReal_slide_Public');
+		let clone1 = roller[0].cloneNode(true);
+		let clone2 = roller[1].cloneNode(true);
+		let image = document.querySelector('.AdotReal_slide_roller img');
+ 		let isLoaded = image.complete && image.naturalHeight !== 0;
+
+			roller[0].className += ' rroller1';
+			roller[1].className += ' rroller1';
+			clone1.className += ' rroller2';
+			clone2.className += ' rroller2';
+            height_lol[0].appendChild(clone1);
+            height_lol[1].appendChild(clone2);
+			document.querySelectorAll('.rroller1')[0].style.left = '0px';
+			document.querySelectorAll('.rroller1')[1].style.left = '0px';
+            document.querySelectorAll('.rroller2')[0].style.left = document.querySelector('.AdotReal_slide_roller ul').offsetWidth+'px';
+            document.querySelectorAll('.rroller2')[1].style.left = document.querySelector('.AdotReal_slide_roller ul').offsetWidth+'px';
+            roller[0].classList.add('original');
+            roller[1].classList.add('original');
+            clone1.classList.add('clone');
+            clone2.classList.add('clone');
+			height_lol[0].style.height = slide_roller_height+'px';
+			height_lol[1].style.height = slide_roller_height+'px';
+        });
+    </script>
+</body>
+</html>

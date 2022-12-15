@@ -1,0 +1,14 @@
+mysql 접속 사용방법
+
+이름 밑에있는 소메뉴
+- Mysql
+
+Mysql Host Address : ip주소 ex) 00.000.000.00
+사용자이름 : 아이디
+비밀번호 : 번호 입력
+포트 입력
+
+
+
+마이 sql 한국어 설정
+set session character_set_connection=utf8;set session character_set_results=utf8;set session character_set_client=utf8;

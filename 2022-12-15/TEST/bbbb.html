@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-confetti@2/tsparticles.preset.confetti.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="tsparticles" style="background: #000; position: fixed; width: 100%; height: 100%; left: 0; top: 0">
+    <canvas data-generated="true" style="width: 100% !important; height: 100% !important; position: fixed !important; z-index: 100 !important; top: 0px !important; left: 0px !important; pointer-events: none;" width="1921" height="916"></canvas>
+</div>
+
+</body>
+<script type="text/javascript">
+            (async () => {
+                await loadConfettiPreset(tsParticles);
+
+                await tsParticles.load("tsparticles", {
+                    preset: "confetti",
+                });
+            })();
+        </script>
+</html>

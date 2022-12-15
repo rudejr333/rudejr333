@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://tistory4.daumcdn.net/tistory/3134841/skin/images/confetti_v2.js"></script>
+
+    <title>Document</title>
+
+    <style>
+        canvas{z-index:10;pointer-events: none;position: fixed;top: 0;transform: scale(1.1);}
+        * {
+            box-sizing: border-box;
+            }
+
+            .item {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            padding-top: 75px;
+            background: rgba(255,85,0, .7);
+            text-align: center;
+            color: #4E4C48;
+            font-size: 1.5em;
+            }
+        body {
+            display: grid;
+            place-items: center;
+            font-family: 'Gloria Hallelujah', cursive;
+            background: linear-gradient(#eb6383 25%, #fa9191 25% 50%, #ffe9c5 50% 75%, #b4f2e1 75%);
+        }
+        h1 {
+            font-size: 6.5vw;
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 2px #eb6383;
+        }
+        .char, .word {
+            display: inline-block;
+        }
+        .splitting .char {
+            animation: slide-in 1s cubic-bezier(0.17, 0.84, 0.4, 1.49) both;
+            animation-delay: calc(30ms * var(--char-index));
+        }
+        [data-word="♬"] .char {
+            display: inline;
+        }
+
+        @keyframes slide-in {
+            0% {
+                transform: scale(2) rotate(60deg);
+                opacity: 0;
+            }
+        }
+        @keyframes bump-in {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+        particule {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            box-shadow: 1px 1px 4px #eb6383;
+            transform: scale(1.1);
+        }
+        
+    </style>
+</head>
+<body>
+<div class="buttonContainer">
+	<button class="canvasBtn" id="stopButton">Stop Confetti</button>
+	<button class="canvasBtn" id="startButton">Drop Confetti</button>	
+</div>
+<canvas id="canvas"></canvas>
+<h1>Happy birthday Orange<br>♬</h1>
+    
+<h1>FADE</h1>
+<div class="item" data-aos="fade-up" data-aos-anchor-placement="top-center">fade-up</div>
+<div class="item" data-aos="fade-down">fade-down</div>
+<div class="item" data-aos="fade-right">fade-right</div>
+<div class="item" data-aos="fade-left">fade-left</div>
+<div class="item" data-aos="fade-up-right">fade-up-right</div>
+<div class="item" data-aos="fade-up-left">fade-up-left</div>
+<div class="item" data-aos="fade-down-right">fade-down-right</div>
+<div class="item" data-aos="fade-down-left">fade-down-left</div>
+
+<h1>FLIP</h1>
+<div class="item" data-aos="flip-left">flip-left</div>
+<div class="item" data-aos="flip-right">flip-right</div>
+<div class="item" data-aos="flip-up">flip-up</div>
+<div class="item" data-aos="flip-down">flip-down</div>
+
+<h1>ZOOM</h1>
+<div class="item" data-aos="zoom-in">zoom-in</div>
+<div class="item" data-aos="zoom-in-up">zoom-in-up</div>
+<div class="item" data-aos="zoom-in-down">zoom-in-down</div>
+<div class="item" data-aos="zoom-in-left">zoom-in-left</div>
+<div class="item" data-aos="zoom-in-right">zoom-in-right</div>
+<div class="item" data-aos="zoom-out">zoom-out</div>
+<div class="item" data-aos="zoom-out-up">zoom-out-up</div>
+<div class="item" data-aos="zoom-out-down">zoom-out-down</div>
+<div class="item" data-aos="zoom-out-right">zoom-out-right</div>
+<div class="item" data-aos="zoom-out-left">zoom-out-left</div>
+
+<h1>DIFFERENT SETTINGS EXAMPLES</h1>
+<div class="item" data-aos="fade-up" data-aos-duration="3000">fade-up</div>
+<div class="item" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">fade-down linear</div>
+<div class="item" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">fade-right</div>
+<div class="item" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">fade-left</div>
+<div class="item" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0">fade-zoom-in</div>
+<div class="item" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">flip-left</div>
+
+<h1>ANCHOR PLACEMENT</h1>
+<div class="item" data-aos="fade-up" data-aos-anchor-placement="top-bottom">fade-up top-bottom</div>
+<div class="item" data-aos="fade-up" data-aos-anchor-placement="center-bottom">fade-up center-bottom</div>
+<div class="item" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">fade-up bottom-bottom</div>
+<div class="item" data-aos="fade-up" data-aos-anchor-placement="top-center">fade-up top-center</div>
+<div class="item" data-aos="fade-up" data-aos-anchor-placement="center-center">fade-up center-center</div>
+<div class="item" data-aos="fade-up" data-aos-anchor-placement="bottom-center">fade-up bottom-center</div>
+
+</body>
+<script>
+    //console.clear();
+    AOS.init({
+        duration: 1000
+    });
+
+        // AOS.init({
+        //    offset: 200,
+        //    duration: 600,
+        //    easing: 'ease-in-sine',
+        //    delay: 100,
+        //  });
+
+    let particles = [];
+    const colors = ["DodgerBlue", "OliveDrab", "Gold", "pink", "SlateBlue", "lightblue", "Violet", "PaleGreen", "SteelBlue", "SandyBrown", "Chocolate", "Crimson"];
+    function pop () {
+        for (let i = 0; i < 80; i++) {
+            const p = document.createElement('particule');
+            p.x = window.innerWidth * 0.5;
+            p.y = window.innerHeight + (Math.random() * 0.5 * -1);
+            p.vel = {
+                x: (Math.random() - 0.5) * 10,
+                y: Math.random() * -0.5 - 15
+            };
+            p.mass = Math.random() * 0.2 + 0.8;
+            particles.push(p);
+            p.style.transform = `translate(${p.x}px, ${p.y}px)`;
+            const size = Math.random() * 15 + 5;
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            p.style.background = colors[Math.floor(Math.random()*colors.length)];
+            document.body.appendChild(p);
+        }
+    }
+
+    function render () {
+    for (let i = particles.length - 1; i--; i > -1) {
+        const p = particles[i];
+        p.style.transform = `translate3d(${p.x}px, ${p.y}px, 1px)`;
+        
+        p.x += p.vel.x;
+        p.y += p.vel.y;
+        
+        p.vel.y += (0.5 * p.mass);
+        if (p.y > (window.innerHeight * 2)) {
+        p.remove();
+        particles.splice(i, 1);
+        }
+    }
+    requestAnimationFrame(render);
+    }
+    pop();
+    window.setTimeout(render, 700);
+    window.addEventListener('click', pop);
+</script>
+</html>

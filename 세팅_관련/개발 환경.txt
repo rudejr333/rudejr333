@@ -1,0 +1,150 @@
+
+
+CMD 관리자 권한으로 켜야함.
+
+도커 이미지 생성.
+docker run -dit -p 9657:22 -p 80:80  -p 443:443 -v /Users/kiyoung/hole/DShare/WEB1/home:/home -v /Users/kiyoung/hole/DShare/WEB1/home1:/home1  --name 'dshare-old-centos68-docker' centos:6.8
+
+
+기본 프로그램 설치.
+yum -y install openssh-server openssh-clients vim wget
+
+
+타임존 설정.
+ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+
+
+ssh 설정 수정.
+vim /etc/ssh/sshd_config
+PermitRootLogin yes <- delete comment
+
+
+sshd 재시작.
+chkconfig sshd on
+service sshd start
+
+
+repository update
+
+build_in_house_dev 리파지토리에 /etc/yum.repos.d.tar.gz 사용.
+-- !! check /etc/yum.repos.d
+
+-- !! check /etc/yum.conf <- 마지막 2줄 제거.
+
+
+설치된 패키지 업데이트.
+yum makecache
+yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+yum install yum-utils
+yum update
+
+-- !! yum install 시
+GPG key retrieval failed: [Errno 14] Could not open/read file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+에러가 나면
+
+rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
+이렇게 입력한다.
+
+
+WEB7(slave)와 같은 패키지 목록을 위해 추가해야 할  패키지 설치  .
+yum -y install libtiff-3.9.4-21.el6_8.x86_64 vnstat-1.11-1.el6.x86_64 apr-1.3.9-5.el6_9.1.x86_64 libmcrypt-2.5.8-9.el6.x86_64 libXext-1.3.3-1.el6.x86_64 zlib-devel-1.2.3-29.el6.x86_64 libicu-4.2.1-14.el6.x86_64 libkadm5-1.10.3-65.el6.x86_64 libcom_err-devel-1.41.12-24.el6.x86_64 libsepol-devel-2.0.41-4.el6.x86_64 libidn-devel-1.18-2.el6.x86_64 autoconf-2.63-5.1.el6.noarch libselinux-2.0.94-7.el6.x86_64 keyutils-libs-devel-1.4-5.el6.x86_64 sed-4.2.1-10.el6.x86_64 libexif-0.6.21-5.el6_3.x86_64 epel-release-6-8.noarch mailcap-2.1.31-2.el6.noarch libxml2-devel-2.7.6-21.el6_8.1.x86_64 icu-4.2.1-14.el6.x86_64 libmcrypt-devel-2.5.8-9.el6.x86_64 ncurses-devel-5.7-4.20090207.el6.x86_64 lua-devel-5.1.4-4.1.el6.x86_64 rsync-3.0.6-12.el6.x86_64 rdate-1.4-16.el6.x86_64 traceroute-2.0.14-2.el6.x86_64 rsyslog-5.8.10-12.el6.x86_64 smartmontools-5.43-3.el6.x86_64 attr-2.4.44-7.el6.x86_64 authconfig-6.1.12-23.el6.x86_64 pciutils-libs-3.1.10-4.el6.x86_64 b43-openfwwf-5.2-10.el6.noarch grubby-7.0.15-7.el6.x86_64  kbd-misc-1.15-11.el6.noarch cryptsetup-luks-libs-1.2.0-11.el6.x86_64 libaio-0.3.107-10.el6.x86_64 cyrus-sasl-2.1.23-15.el6_6.2.x86_64 vsftpd-2.2.2-24.el6.x86_64 crontabs-1.10-33.el6.noarch telnet-0.17-48.el6.x86_64 kbd-1.15-11.el6.x86_64 xinetd-2.3.14-40.el6.x86_64 mlocate-0.22.2-6.el6.x86_64 libjpeg-turbo-devel-1.2.1-3.el6_5.x86_64 pcre-devel-7.8-7.el6.x86_64 system-config-firewall-base-1.2.27-7.2.el6_6.noarch cryptsetup-luks-1.2.0-11.el6.x86_64 libpng-devel-1.2.49-2.el6_7.x86_64  e2fsprogs-1.41.12-24.el6.x86_64 bridge-utils-1.2-10.el6.x86_64 libexif-devel-0.6.21-5.el6_3.x86_64 krb5-devel-1.10.3-65.el6.x86_64 scl-utils-20120927-29.el6_9.x86_64 wget-1.12-10.el6.x86_64 apr-util-1.3.9-3.el6_0.1.x86_64 apr-util-ldap-1.3.9-3.el6_0.1.x86_64 libtool-ltdl-2.2.6-15.5.el6.x86_64 libxslt-1.1.26-2.el6_3.1.x86_64 t1lib-5.1.2-6.el6_2.1.x86_64 libwebp-0.4.3-3.el6.x86_64 libXrender-0.9.10-1.el6.x86_64 automake-1.11.1-4.el6.noarch pcre-devel.x86_64 lua-devel.x86_64 libxml2-devel.x86_64 ncurses-devel.x86_64 zlib-devel.x86_64 libjpeg-devel.x86_64 libpng-devel.x86_64 libjpeg-turbo-devel.x86_64 libexif-devel.x86_64 libmcrypt-devel.x86_64 libcurl-devel.x86_64 openssl openssl-devel rsync xinetd
+
+
+repo 주소 추가.
+curl -L -s http://repos.fedorapeople.org/repos/jkaluza/httpd24/epel-httpd24.repo > /etc/yum.repos.d/epel-httpd24.repo
+
+
+의존성 패키지 설치하려는것인지 설치 후 삭제.
+yum install httpd24-httpd httpd24-mod_ssl httpd24-mod_security
+yum remove httpd24-httpd httpd24-mod_ssl httpd24-mod_security
+
+
+php 설치.
+yum install epel-release
+
+yum -y --enablerepo=remi-php56 install php
+yum -y --enablerepo=remi-php56 install php-mcrypt*
+yum -y --enablerepo=remi-php56 install php-mbstring
+yum -y --enablerepo=remi-php56 install php-xml
+yum -y --enablerepo=remi-php56 install php-mysql
+yum -y --enablerepo=remi-php56 install php-gd
+yum -y --enablerepo=remi-php56 install php-opcache
+yum -y install libjpeg libpng libXrender fontconfig libXext
+
+
+php를 설치하면서 설치된 httpd 2.2 삭제.
+yum remove httpd
+
+
+웹서버 동접자??를 늘리기 위한 명령어.
+ulimit -a
+ulimit -n 10000
+
+
+build_in_house_dev 리파지토리에 /usr/lib64/ZendGuardLoader.so 를 해당 위치에 설치.
+cd /usr/lib64
+chmod 755 ZendGuardLoader.so
+
+
+libwkhtmltox 설치.
+build_in_house_dev 리파지토리에 /data/lib/libwkhtmltox.so 를 해당 위치에 설치.
+
+build_in_house_dev 리파지토리에 /data/lib/libwkhtmltox.so.0 를 해당 위치에 설치.
+
+build_in_house_dev 리파지토리에 /data/lib/libwkhtmltox.so.0.12 를 해당 위치에 설치.
+
+build_in_house_dev 리파지토리에 /data/lib/libwkhtmltox.so.0.12.5 를 해당 위치에 설치.
+
+build_in_house_dev 리파지토리에 /data/lib/phpwkhtmltox.so 를 해당 위치에 설치.
+
+
+용도를 모르겠는데 실서버에 있어서 그대로 설치.
+build_in_house_dev 리파지토리에 /db_info/3j.php 를 해당 위치에 설치.
+
+build_in_house_dev 리파지토리에 /db_info/3j.sh 를 해당 위치에 설치.
+
+
+apr 설치.
+build_in_house_dev 리파지토리에 /usr/local/apr-1.4.8.tar.gz 를 해당 위치에 설치.
+
+build_in_house_dev 리파지토리에 /usr/local/apr-iconv-1.2.2.tar.gz 를 해당 위치에 설치.
+
+build_in_house_dev 리파지토리에 /usr/local/apr-util-1.6.1.tar.gz 를 해당 위치에 설치.
+
+
+httpd 2.4 설치.
+build_in_house_dev 리파지토리에 /usr/local/httpd-2.4.29.tar.gz 를 해당 위치에 설치.
+
+
+php5.6 설치.
+build_in_house_dev 리파지토리에 /usr/local/php-5.6.32.tar.gz 를 해당 위치에 설치.
+
+
+환경설정파일 수정.
+build_in_house_dev 리파지토리에 /usr/local/httpd-2.4.29/conf/httpd.conf 를 해당 위치에 설치.
+
+build_in_house_dev 리파지토리에 /usr/local/httpd-2.4.29/conf/extra/httpd-ssl.conf 를 해당 위치에 설치.
+
+build_in_house_dev 리파지토리에 /usr/local/httpd-2.4.29/conf/php.ini 를 해당 위치에 설치.
+
+
+build_in_house_dev 리파지토리에 /home/home_b.tar.xz 를 해당 위치에 설치.
+
+build_in_house_dev 리파지토리에 /home1/3jedu.tar.xz 를 해당 위치에 설치.
+
+httpd 실행.
+/usr/local/httpd-2.4.29/bin/httpd -k start 로 웹서버 실행.
+
+/usr/local/httpd-2.4.29/bin/httpd -k stop 로 웹서버 종료.
+
+/usr/local/httpd-2.4.29/bin/httpd -k restart 로 웹서버 재실행.
+
+
+build_in_house_dev 리파지토리에 host 파일을 개발PC의 host 파일에 추가.
+
+필요하다면 스케줄러 파일도 설치한다.
+xdebug 설치학..
+yum --enablerepo=remi-test install php56-php-devel
+yum --enablerepo=remi install php56-php-pecl-xdebug
+
+ssh -R 9002:localhost:9001 root@127.0.0.1 -p9657

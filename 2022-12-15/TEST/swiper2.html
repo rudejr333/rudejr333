@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+      body>div{    display: flex;
+    width: 1060px;
+    margin: auto;}
+
+      .swiper {
+        margin: 100px auto;
+        height: 603px;
+      }
+
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .swiper-slide:nth-child(1n) {
+        background-color: rgb(206, 17, 17);
+      }
+
+      .swiper-slide:nth-child(2n) {
+        background-color: rgb(0, 140, 255);
+      }
+
+      .swiper-slide:nth-child(3n) {
+        background-color: rgb(10, 184, 111);
+      }
+
+      .swiper-slide:nth-child(4n) {
+        background-color: rgb(211, 122, 7);
+      }
+
+      .swiper-slide:nth-child(5n) {
+        background-color: rgb(118, 163, 12, .0);
+      }
+    </style>
+</head>
+<body>
+    <div id="aa">
+        <div>
+        
+        </div>
+        <div id="swiper" class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+  function myPlugin({ swiper, extendParams, on }) {
+      extendParams({
+        debugger: false,
+      });
+
+      on('init', () => {
+        if (!swiper.params.debugger) return;
+        console.log('init');
+      });
+      on('click', (swiper, e) => {
+        if (!swiper.params.debugger) return;
+        console.log('click');
+      });
+      on('tap', (swiper, e) => {
+        if (!swiper.params.debugger) return;
+        console.log('tap');
+      });
+      on('doubleTap', (swiper, e) => {
+        if (!swiper.params.debugger) return;
+        console.log('doubleTap');
+      });
+      on('sliderMove', (swiper, e) => {
+        if (!swiper.params.debugger) return;
+        console.log('sliderMove');
+      });
+      on('slideChange', () => {
+        if (!swiper.params.debugger) return;
+        console.log(
+          'slideChange',
+          swiper.previousIndex,
+          '->',
+          swiper.activeIndex
+        );
+      });
+      on('slideChangeTransitionStart', () => {
+        if (!swiper.params.debugger) return;
+        console.log('slideChangeTransitionStart');
+      });
+      on('slideChangeTransitionEnd', () => {
+        if (!swiper.params.debugger) return;
+        console.log('slideChangeTransitionEnd');
+      });
+      on('transitionStart', () => {
+        if (!swiper.params.debugger) return;
+        console.log('transitionStart');
+      });
+      on('transitionEnd', () => {
+        if (!swiper.params.debugger) return;
+        console.log('transitionEnd');
+      });
+      on('fromEdge', () => {
+        if (!swiper.params.debugger) return;
+        console.log('fromEdge');
+      });
+      on('reachBeginning', () => {
+        if (!swiper.params.debugger) return;
+        console.log('reachBeginning');
+      });
+      on('reachEnd', () => {
+        if (!swiper.params.debugger) return;
+        console.log('reachEnd');  //마지막에 도착하면 실행
+        swiper.mousewheel.disable()	//마우스휠 컨트롤 비활성화
+        //swiper.mousewheel.enable()	//마우스휠 제어 활성화
+      });
+      on('mousewheel DOMMouseScroll', () => {
+        if (!swiper.params.debugger) return;
+        console.log('mousewheel');
+      });
+    }
+
+    // Init Swiper
+    var swiper = new Swiper('#swiper', {
+      // Install Plugin To Swiper
+      mousewheel: true,
+      slidesPerView: 2,
+      spaceBetween: 70,
+      effect: "creative",
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            translate: ["-120%", 0, -500]
+          },
+          next: {
+            shadow: true,
+            translate: ["120%", 0, -500]
+          }
+        },
+      modules: [myPlugin],
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // Enable debugger
+      debugger: true,
+    });
+    
+</script>
+</html>

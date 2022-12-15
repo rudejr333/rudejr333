@@ -1,0 +1,4 @@
+도커 실행 명령
+service sshd start
+
+/usr/local/httpd-2.4.29/bin/httpd -k start

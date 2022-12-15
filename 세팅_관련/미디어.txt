@@ -1,0 +1,14 @@
+@midia (min-width:769px){
+
+}
+
+@midia (max-width:770px){
+
+}
+
+
+
+
+
+
+

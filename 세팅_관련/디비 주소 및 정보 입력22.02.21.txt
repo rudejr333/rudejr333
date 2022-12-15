@@ -1,0 +1,25 @@
+실서버 db 호스트
+*main
+- adot-prod-cluster.cluster-cubo51l2sgw0.ap-northeast-2.rds.amazonaws.com
+- 3306
+username - gyongduc.jo
+password - Rudejr1!
+
+*ssh
+- ec2-3-34-152-182.ap-northeast-2.compute.amazonaws.com
+- 9658
+username - gyongduc
+password - Rudejr1!
+
+
+개발서버 db호스트
+- adot-dev-210607-cluster.cluster-cubo51l2sgw0.ap-northeast-2.rds.amazonaws.com
+- 3306
+username - gyongduc.jo
+password - 3Jedu!@34
+
+*ssh
+- ec2-3-37-66-29.ap-northeast-2.compute.amazonaws.com
+- 9658
+username - gyongduc
+password - Rudejr1!

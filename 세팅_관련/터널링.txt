@@ -1,0 +1,26 @@
+AWS-DEV-EC2(BastionHost접속후 EC2접속)
+# ssh -L 2222:10.20.0.142:22 본인ID@ec2-3-37-66-29.ap-northeast-2.compute.amazonaws.com -p9658
+# ssh -i /your/pem/path/dev_instance.pem ec2-user@localhost -p2222
+AWS-DEV-EC2-XDEBUG
+# ssh -L 2222:10.20.0.142:22 본인ID@ec2-3-37-66-29.ap-northeast-2.compute.amazonaws.com -p9658
+# ssh -R 9000:localhost:9000 -i /your/pem/path/dev_instance.pem ec2-user@localhost -p2222
+
+
+
+ssh gyongduc@ec2-3-37-66-29.ap-northeast-2.compute.amazonaws.com -p9658
+
+
+ssh -L 2222:10.20.0.142:22 gyongduc@ec2-3-37-66-29.ap-northeast-2.compute.amazonaws.com -p9658
+
+ssh -L
+
+터널링 하는 방법
+* 
+
+2222
+10.20.0.142
+22 
+gyongduc
+ec2-3-37-66-29.ap-northeast-2.compute.amazonaws.com
+-p9658
+

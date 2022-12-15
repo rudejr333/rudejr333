@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+
+<title>흐르는 하단 배너</title>
+
+<link type="text/css" rel="stylesheet" href="./css/normalize.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="./js/jquery.carouFredSel-5.5.0-packed.js"></script>
+<script type="text/javascript" src="./js/flow_banner.js"></script>
+</head>
+
+ <body>
+
+ 	<style type="text/css">
+ 		/* banner */
+ 		.footer_banner_zone{position:relative; width:100%; background:#f8f8f8; padding:15px 0;}
+ 		.footer_banner_zone .flow_banner_box{position:relative; width:1000px; margin:0 auto; background:#fff; height:66px;}
+ 		.footer_banner_zone .flow_banner_box .flow_bann_area{position:absolute; top:8px; left:50%; margin-left:-447px;}
+ 		.footer_banner_zone .flow_banner_box .flow_bann_area ul{*zoom:1;}
+ 		.footer_banner_zone .flow_banner_box .flow_bann_area ul:after{content:""; display:block; clear:both;}
+ 		.footer_banner_zone .flow_banner_box .flow_bann_area ul li{float:left; padding-right:9px;}
+ 		.footer_banner_zone .flow_banner_box .flow_bann_area ul li a{}
+ 		.footer_banner_zone .flow_banner_box .flow_bann_area ul li a img{border:1px solid #f2f2f2;}
+
+		/* btn */
+ 		.flow_ctrl_box{}
+ 		.flow_ctrl_box a{position:absolute; top:20px;  width:16px; height:26px; background-image:url(./images/flow_ctrl_side_btn.gif);}
+ 		.flow_ctrl_box a.back{left:18px; background-position:0 0;}
+ 		.flow_ctrl_box a.next{right:18px; background-position:16px 0;}
+ 		.flow_ctrl_box a.play{background:none; width:auto; height:auto; top:0; left:-30px; font-size:13px; color:#fff; background:#333; border-radius:15px; text-decoration:none; padding:5px 10px;}
+ 		.flow_ctrl_box a.stop{background:none; width:auto; height:auto; top:31px; left:-30px; font-size:13px; color:#fff; background:#333; border-radius:15px; text-decoration:none; padding:5px 10px;}
+ 	</style>
+
+	<!-- footer_banner -->
+ 	<div class="footer_banner_zone">
+ 		<h3 class="blind">관련사이트</h3>
+
+ 		<!-- banner -->
+ 		<div class="flow_banner_box">
+ 			<div id="banner" class="flow_bann_area">
+				<ul>
+					<li>
+						<a href="#">
+							<img src="./images/footer_banner_img_01.jpg" alt="banner_01" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="./images/footer_banner_img_02.jpg" alt="banner_02" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="./images/footer_banner_img_03.jpg" alt="banner_03" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="./images/footer_banner_img_04.jpg" alt="banner_04" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="./images/footer_banner_img_05.jpg" alt="banner_05" />
+						</a>
+					</li>
+
+					<li>
+						<a href="#">
+							<img src="./images/footer_banner_img_06.jpg" alt="banner_06" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="./images/footer_banner_img_07.jpg" alt="banner_07" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="./images/footer_banner_img_01.jpg" alt="banner_01" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="./images/footer_banner_img_02.jpg" alt="banner_02" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="./images/footer_banner_img_03.jpg" alt="banner_03" />
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- controll -->
+			<div class="flow_ctrl_box">
+				<a href="#" id="banner_left" class="back"><span class="blind">이전</span></a>
+				<a href="#" id="banner_right" class="next"><span class="blind">다음</span></a>
+				<a href="#" id="banner_play" class="play"><span class="">재생</span></a>
+				<a href="#" id="banner_pause" class="stop"><span class="">멈춤</span></a>
+			</div>
+			<!-- //controll -->
+		</div>
+		<!-- //banner -->
+
+ 	</div>
+	<!-- //footer_banner -->
+
+ </body>
+</html>

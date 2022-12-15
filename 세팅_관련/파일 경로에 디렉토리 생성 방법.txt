@@ -1,0 +1,17 @@
+VS 코드 경로 복사 하기
+- 터미널 창을 연다
+- 
+
+
+
+1. mkdir
+- 디렉토리 위치 지정
++ 저장될 위치에 디렉토리 생성
+
+작성 예) mkdir C:\Users\gyong\Desktop\AAA\home\3jedu_BW\html (실제 바탕화면에 있어야함)
+
+2. copy 
+- 디렉토리를 먼저 생성 후 해야함.
++ C: 복사할 경로의 파일 C: 복사될 위치
+
+작성 예) copy c:\home\3jedu_BW\html\wise_popup.html C:\Users\gyong\Desktop\AAA\home\3jedu_BW\html
