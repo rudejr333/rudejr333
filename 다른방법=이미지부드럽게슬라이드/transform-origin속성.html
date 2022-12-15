@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>디그리 연습</title>
+<style>
+#div1{position:relative;height:200px;width:200px;margin:100px auto;padding:10px;border:1px solid black}
+
+#div2{padding:50px;position:absolute;left:0;top:0;border:1px solid black;background:red;transition:2s;}
+
+#div2:hover{transform:rotate(360deg); transform-origin:0 0;}
+
+</style>
+</head>
+<body>
+<h1>transform-origin</h1>
+
+<div id="div1">
+<div id="div2">회전축의 위치</div>
+</div>
+
+</body>
+</html>

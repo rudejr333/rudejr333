@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>반응형: 하니아(오렌지색)</title>
+		
+		
+		
+		
+		
+		
+		
+		
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			html,body{font:12pt/1.8rem "나눔고딕"background:#ccc;}
+			
+			:root{--orange:#f47d31;}
+			
+			/*레이아웃*/
+			#la{max-width:1000px; background:var(--orange)}
+			
+			/*상단*/
+			header{background:var(--orange); padding:20pt;}
+			header>h1{color:white; text-align:center; font-size:3rem;}
+			
+			/*전체 컨텐츠*/
+			#co{margin:20pt 0}
+			
+			/*외쪽 메뉴*/
+			nav>h2{color:white; text-align:center; font-size:1.8rem;margin-bottom:10pt;}
+			
+			nav>a{display:block; text-decoration:none; padding:15pt; border: 3px solid white;color:var(--orange);font-weight:bold; text-align:center;text-shadow:1px 0 2px black;font-size:1.2rem;}
+			nav>a:hover{background:var(--orange);color:white;}
+			
+			/*메인*/
+			main>article{background:#eee; margin:10px; border-radius:10px;padding:15px;}
+			main h3{background:var(--orange);border-radius:10px;padding:5px; text-align:center;color:white;}
+			main a{padding:10px 0;}
+			main>article>:last-child{background:var(--orange);border-radius;10px;text-align:center;color:white;}
+			
+			/*오른쪽에 있는 부가정보*/
+			aside>h3{color:white; text-align:center;font-size:1.4rem;}
+			aside>p{padding:10px; font-size:italic; color:white; text-align:center;}
+			
+			/*하단*/
+			footer{background:var(--orange);text-align:center;padding:15px; color:white;}
+			
+			/*****아이패드*****/
+			@media all and (min-width:500px;){
+					#la		{margin:20pt auto; border:3px solid white;}
+					#co{display:flex; flex-wrap:wrap;}
+					nav{flex:1; margin-right:10pt;}
+					main{flex:2.5;}
+					aside{flex-basis:100%; }
+			}
+			
+			
+			/*****pc*****/
+			@media all and (min-width:1000px){
+			#co{flex-wrap:nowrap;}
+			main{flex:2;}
+			aside{flex:1;text-align:center;}
+			}
+		</style>
+	</head>
+	<body>
+		<header id="la">
+			<h1>하니아</h1>
+		</header>
+		<div id="co">
+			<nav>
+				<h2>메뉴</h2>
+				<a href="#">비행편</a>
+				<a href="#">도시</a>
+				<a href="#">아일랜드</a>
+			</nav>
+			<main>
+				<article>
+					<h3>도시</h3>
+					<p>하니아는 크레타섬에 있는 하니아 지역의 수도입니다. 도시는 구 시가지와 현대 도시의 구 부분으로 나눌수 있습니다.</p>
+					<p>많은 신혼부부들이 신혼 여행지로 택한 지중해 휴양지 크레타의 하니아! 뿐만 아니라 베네치아 시대부터 이어져 그리스의 오랜 역사를 담고 있는 유서깊은 곳입니다.</p>
+					<p></p>
+				</article>
+				<article>
+					<h3>아일랜드</h3>
+					<p>도시는 섬 북쪽 해안과 접하고 있으며, 레팀노와는 서쪽으로 70kcm, 이라클리오와는 145kmc 떨어져 있습니다.</p>
+					<p>그리스 크레타 섬에서 두번째로 큰도시</p>
+				</article>
+			</main>
+			<aside>
+				<h3>booking.com</h3>
+				<p>하니아 추천 숙소는 해변에서 도보로 16분 거리에 있습니다.
+				포토토호텔은 하니아의 오래된 배네치아 항수에 위피해 있습니다.</p>
+			</aside>
+		</div>
+		<footer>
+			<p>즐거운여행 되십시오</p>
+		</footer>
+	</body>
+</html>

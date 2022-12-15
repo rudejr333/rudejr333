@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<style>
+#layout {width:200px;cursor:pointer;overflow:hidden}
+#ban {position:relative;width:600px;height:80px;}
+</style>
+<script>
+$(document).ready(function(){
+ $("#ba0").click(function(){
+  $("#ban").animate({left:'-200px'});
+  });
+ $("#ba1").click(function(){
+  $("#ban").animate({left:'-400px'});
+  });
+ $("#ba2").click(function(){
+  $("#ban").animate({left:'0px'});
+  });
+});
+</script>
+<body>
+<div id="layout">
+<div id="ban">
+<img src="https://www.google.co.kr/images/srpr/logo11w.png" width="200" height="80" id="ba0"><img src="http://img.naver.net/static/www/u/2013/0731/nmms_224940510.gif" width="200" height="80" id="ba1"><img src="http://icon.daumcdn.net/w/icon/1312/19/152729032.png" width="200" height="80" id="ba2">
+</div>
+</div>
+</body>
+</html>

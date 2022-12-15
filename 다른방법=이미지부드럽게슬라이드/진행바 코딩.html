@@ -1,0 +1,31 @@
+<!DOCTYPEh tml>
+<html>
+<head>
+	<meta charset="utf-8" >
+	<title>퍼센트만큼 늘어나는 막대형 진행바</title>
+	<style>
+	progress	{width:500px; height:50px; border:3px dashed darkOliveGreen;}
+	::-webkit-progress-bar 	{background:lightgray;}
+	::-webkit-progress-value{background:lightblue;}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$(document).scrollTop(0);
+			$(window).scroll(function(){
+				if($(document).scrollTop()>500){
+					$("progress").delay(500).animate({value:"90px"},1000);
+				}
+			});	
+	});
+	</script>
+</head>
+<body>
+<div style="height:1000px">임의의 영역1</div>
+<section>
+	<h1>막대형 진행바</h1>
+	<progress max="100"></progress>
+</section>
+<div style="height:1000px">임의의 영역2</div>
+</body>
+</html>

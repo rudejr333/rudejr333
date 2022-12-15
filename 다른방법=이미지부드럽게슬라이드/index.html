@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>반응형 홈페이지 : Mobile ~ PC</title>
+	<style>
+	*							{box-sizing:border-box;}
+	
+	/* 상단 */
+	header						{background:#93c; color:white; padding:15pt;}
+	
+	/* 좌측메뉴 */
+	nav ul						{list-style:none; padding:0;}
+	nav li 						{margin-bottom:5pt; background:#33b5e5; box-shadow:0 1px 3px rgba(0,0,0,.3),0 1px 2px rgba(0,0,0,.5);}
+	nav li:hover				{background:#09c;}
+	nav a 						{color:white; text-decoration:none; display:block; padding:8pt;}
+	
+	/* 오른쪽 부가정보 */
+	aside>section				{background:#33b5e5; padding:15pt; color:white; text-align:center; font-size:0.8rem;
+								box-shadow:0 1px 3px rgba(0,0,0,.3),0 1px 2px rgba(0,0,0,.5);}
+	
+	/* 메인 전체:nav + main + aside */
+	#layout>*					{padding:15pt; width:100%;}
+	
+	/* 하단 */
+	footer						{background:#33b5e5; color:white; text-align:center; font-size:0.7rem; padding:15pt;}
+	
+	/* iPad */
+	@media screen and (min-width:500px){
+		#layout					{display:flex; flex-wrap:wrap;}
+		nav						{flex-basis:calc(30%); /* basis와 동시에 적으면 width는 안먹는다 */}
+		main					{flex-basis:calc(70% - 0pt);}
+		aside					{flex-basis:calc(100%);}
+	}
+	/* PC */
+	@media screen and (min-width:800px){
+		nav						{flex:1;}
+		main					{flex:2;}
+		aside					{flex:1.5;}
+	}
+	
+	</style>
+</head>
+<body>
+	<header>
+		<h1>하니아 도시</h1>
+	</header>
+	<div id="layout">
+		<nav>
+			<ul>
+				<li><a href="#">비행편</a></li>
+				<li><a href="#">도시</a></li>
+				<li><a href="#">아일랜드</a></li>
+				<li><a href="#">음식</a></li>
+			</ul>
+		</nav>
+		<main>
+			<h1>도시</h1>
+			<p>
+			하니아는 크레타 섬에 있는 하니아 지역의 수도입니다.
+			도시는 구시가지와 현대도시의 두 부분으로 나눌 수 있습니다.
+			</p>
+		</main>
+		<aside>
+			<section>
+				<h2>어떤 나라입니까</h2>
+				<p>하니아는 크레타 섬의 한 도시입니다.</p>
+				<h2>어디에 있습니까.</h2>
+				<p>크레타 섬은 지중해의 그리스 섬입니다.</p>
+				<h2>어떻게 갈 수 있나요</h2>
+				<p>유럽각지에서 하니아 공항으로 도착할 수 있습니다.</p>
+			</section>
+		</aside>
+	</div>
+	<footer>
+		<p>브라우저 창 크기를 조절하면 내용의 모양이 크기에 맞게 조정됩니다.</p>
+	</footer>
+</body>
+</html>

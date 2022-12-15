@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Animation 기능</title>
+<style>
+body	{margin-top:200px; margin-left:100px;}
+#ani	{width:100px; padding:30px;border-radius:10ox; background:yellowgreen; color:white; font-weight:bold; text-shadow: 0 0 5px black; box-shadow:1px 1px 30px darkgreen;position:relative; animation: move 2s infinite;}
+
+@keyframes move{
+				10% {transform:rotate(15deg); background:gold; box-shadow:1px 1px 30px yellow;}
+				50% {margin-left:80%;transform:rotate(0deg);}
+				100%{transform:rotate(-360deg);}
+}
+</style>
+</head>
+<body>
+
+<div id="ani">css3 애니</div>
+
+</body>
+</html>

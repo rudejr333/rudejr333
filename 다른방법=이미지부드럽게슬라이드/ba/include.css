@@ -1,0 +1,30 @@
+* { margin:0; padding:0; box-sizing:border-box;}
+html, body { font:100 10pt/13pt 나눔고딕; color:white; }	
+	
+/***** 상단: 내비게이션 *****/
+#full_black {position:absolute; z-index:1; width:360px; height:1000pt; background:black; opacity:.5;  display:none; }
+body>nav {position:absolute; z-index:10; width:160px; height:364px; box-shadow:2pt 2pt 7pt black; background:white; color:black;font:400 1.15rem/30pt 나눔고딕;  padding-top:20pt; left:-170px; }
+body>nav ul { list-style:none; }
+body>nav ul :first-child {font-weight:bold; font-size:1.2rem; }
+body>nav ul li {border-bottom:1px solid gray; padding:3.2pt 12pt; }
+body>nav ul li a {color:black; text-decoration:none; }
+	
+/***** 상단 *****/
+body>nav h2, body>h1, header>h2, main>h2 { display:none; }
+header { width:360px;  background:white; }
+header>ul { display:flex; }
+header>ul>:first-child { margin:19px; }
+header>ul>:last-child { margin:19px 0 0 60px; }
+	
+main {width:calc(300px + 60px); }
+
+/***** 하단섹션 *****/
+footer { clear:left; width:calc(360px - 0px); padding:20px 0 50pt 20px; color:#939393; font:500 .9rem/14pt 나눔고딕; background:#efefef; border-top:1px solid #e0e0e0; overflow:visible; }
+footer>h1 {display:block; }
+footer>ul {list-style:none; opacity:.75; }	
+footer>ul>li {float:left; margin:10pt 5pt 0 0; }
+footer a {color:#3a84af; text-decoration:none; }
+footer>ul img:hover {transform:scale(1.3)}
+
+/***** 위로 가는 화살표 *****/
+#icoTop {position:fixed; z-index:0; left:318px; bottom:100pt;}	

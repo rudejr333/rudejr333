@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>그린 베이커리</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="nav.js"></script>
+	<link rel="stylesheet" href="include.css">
+	<script>
+	/*** 전체 스크립트 ***/
+	$(document).ready(function(){
+		function ddd() {			
+			if ($("#choice option:selected").text()=="공지") {$(".news").hide();  $(".gong").show();}
+			if ($("#choice option:selected").text()=="뉴스") {$(".news").show(); $(".gong").hide();}
+			if ($("#choice option:selected").text()=="전체") {$(".gong,  .news").show();}
+		}
+		$("#choice").change(ddd);	
+		
+		$("section:nth-of-type(2)>ul>li:last-child li").click(function(){
+				$(this).addClass("box1").siblings().removeClass();
+		});
+	});
+	</script>
+	<style>	
+	/* Main_ nav */
+	main {width:360px; }
+	
+	main>nav {width:360px; height:auto; left:0;  box-shadow:none; font-size:1rem; padding-top:0; border-bottom:1px solid #cacaca; color:black;font:400 1rem/30pt 나눔고딕;}
+	main>nav>ul {display:flex; width:330px; margin:auto; list-style:none;}
+	main>nav>ul>li {flex-grow:1;letter-spacing:-1px; border:none; padding:3.2pt 12pt; text-align:center;}
+	main>nav>ul>li:nth-child(2) {font-weight:500; color:#672222; border-bottom:1px solid #762323;}
+	main>nav a {color:black; text-decoration:none;}
+	
+	/* 메인의 첫번째 섹션 */
+	main>section>h2 {display:none;}
+	main>section:first-of-type {display:flex; color:black; width:330px; margin:15pt auto 5pt auto; padding-bottom:7pt; border-bottom:2px solid #666;}
+	main>section:first-of-type>span {font-size:.9rem; font-weight:500;}
+	main>section:first-of-type>form {font-size:.9rem; font-weight:500; flex-grow:3; text-align:right; }
+	main>section:first-of-type select {padding:5pt 60pt 6pt 5pt;  border:1px solid #ddd; }
+	/* 메인의 두번째 섹션 */
+	main>section:nth-of-type(2)>ul {overflow:auto; width:330px; margin:auto; color:black; }
+	main>section:nth-of-type(2)>ul>li {display:flex; border-bottom:1px solid #ddd; padding:4pt 0 3pt 0;}
+	main>section:nth-of-type(2)>ul b {font:500 .92rem 나눔고딕; border:1px solid #999; flex-basis:25pt; border-radius:10pt; text-align:center; padding:2pt; margin:5pt 12pt 5pt 5pt; color:#888; }
+	main>section:nth-of-type(2)>ul i {font:500 normal .93rem 나눔고딕; color:#222;   }
+	main>section:nth-of-type(2)>ul a::first-line {text-shadow:1px 1px 2px gold; }
+	.textRed {color:red !important;border:1px solid red !important; background:yellow;}
+	
+	/* 메인의 두번째 섹션: 하단 1,2,3,4,5 */
+	main>section:nth-of-type(2)>ul>li>ul {display:flex; list-style:none; margin:auto;}
+	main>section:nth-of-type(2)>ul>li>ul>li {padding:3.5pt 6pt; cursor:pointer;}
+	main>section:nth-of-type(2)>ul>li>ul>li:first-child,
+	main>section:nth-of-type(2)>ul>li>ul>li:last-child	{font-size:1.5rem;}
+		
+	.box1 {background:#511c1c; color:white;} 
+	
+	main>section:nth-of-type(2) a {text-decoration:none;}	
+	</style>
+</head>
+<body id="top">
+<h1>그린 베이커리_ 브랜드 스토리</h1>
+<?php include("top.inc") ?>
+<main>
+	<h1><img src="images/brand_story_h1.jpg" alt="브랜드 스토리"></h1>
+	<nav>
+		<ul>
+			<li><a href="brand_story.html">그린베이커리 소개</a></li>
+			<li>뉴스&공지사항</li>
+			<li><a href="brand_story_location.html">오시는 길</a></li>
+		</ul>
+	</nav>
+	 <section>
+		<h2>펼침메뉴</h2>
+		<span>총14건</span>
+		<form>
+			<select id="choice">
+				<option>전체</option>
+				<option>공지</option>
+				<option>뉴스</option>
+			</select>
+		</form>			
+	</section>
+	<section>
+	    <h2>공지/뉴스 목록</h2>
+		<ul>
+			<li class="gong">
+				<b class="textRed">공지</b>
+				<a href="brand_story_news_view.html"><i>영업시간 변경 안내<br>2017.03.16</i></a>
+			</li>
+			<li class="news">
+				<b>뉴스</b>
+				<a href="brand_story_news_view.html"><i>3개월 연구 끝에 탄생한 신메뉴 출시!<br>2017.02.24</i></a>
+			</li>
+			<li class="news">
+				<b>뉴스</b>
+				<a href="brand_story_news_view.html"><i>그린베이커리 드디어 이사합니다~<br>2017.02.19</i></a>
+			</li>
+			<li class="gong">
+				<b class="textRed">공지</b>
+				<a href="brand_story_news_view.html"><i>일부 메뉴 가격 인상에 대한 안내<br>2017.01.25</i></a>
+			</li>
+			<li class="news">
+				<b>뉴스</b>
+				<a href="brand_story_news_view.html"><i>새 보금자리 인테리어 공사 중입니다.<br>2017.01.16</i></a>
+			</li>
+			<li class="news">
+				<b>뉴스</b>
+				<a href="brand_story_news_view.html"><i>메뉴 업그레이드~!<br>2017.01.11</i></a>
+			</li>
+			<li class="news">
+				<b>뉴스</b>
+				<a href="brand_story_news_view.html"><i>새해 복 많이 받으세요~<br>2017.01.01</i></a>
+			</li>
+			<li class="gong">
+				<b class="textRed">공지</b>
+				<a href="brand_story_news_view.html"><i>새해 기념, 그린베이커리 할인행사 합니다! <br>2016.12.31</i></a>
+			</li>
+			<li class="gong">
+				<b class="textRed">공지</b>
+				<a href="brand_story_news_view.html"><i>일부 메뉴 가격 인상에 대한 안내<br>2016.12.16</i></a>
+			</li>
+			<li class="news">
+				<b>뉴스</b>
+				<a href="brand_story_news_view.html"><i>LAVAZZA(라바짜) 원두로 바꾸었습니다.<br>2016.12.12</i></a>
+			</li>
+			<li>
+				<ul>
+					<li>&larr;</li>
+					<li class="box1">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>&rarr;</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+</main>
+<?php include("footer.inc") ?>
+<a href="#top"><img src="images/ico_top.gif" alt="위로" id="icoTop"></a>
+</body>
+</html>

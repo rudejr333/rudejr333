@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>반응형: 하니아(보라색)</title>
+		<style>
+		*{padding:0;margin:0;box-sizing:border-box;}
+		html,body{font-family:"나눔고딕","맑은 고딕"}
+		
+		/*상단*/
+		header {background:#93c; color:white;padding:15pt;}
+		
+		/*메뉴*/
+		nav ul{list-style:none;}
+		nav a {display:block; padding:10pt 30pt; text-align:center; margin-bottom:7pt;background:#33b5e5;text-decoration:none;color:white; 
+		box-shadow:0 1px 3px rgba(0,0,0.5),
+				   0 1px 2px rgba(0,0,0,7)}
+		nav a:hover{background:#09c;}
+
+		/*메뉴+메인+어사이드*/
+		#co{padding:15pt;}
+		#co>main{padding:10pt;line-height:25pt;}
+		
+		/*어사이드 오른쪽(부과정보)*/
+		aside{background:#33b5e5; padding:10pt;color:white;box-shadow:0 1px 3px rgba(0,0,0.5),
+				   0 1px 2px rgba(0,0,0,7); text-align:center; font-size:10pt;line-height:25pt;}
+				   
+		/*하단*/
+		footer{background:#33b5e5;color:white;text-align:center;padding:15pt;}
+		
+		/*아이패드*/
+		@media all and (min-width: 501px){
+				#co{display:flex;flex-wrap:wrap;}
+				nav{fexl-basis:30%;}
+				main{flex-basis:70%;}
+				aside{flex-basis:100%;}
+		}	
+			
+		/***pc화면***/
+		@media all and (min-width: 801px){
+				#co{	}
+				nav{flex:1;}
+				main{flex:3;}
+				aside{flex:2;}
+				
+		}		
+		</style>
+	</head>
+	<body>
+		<header id="la">
+			<h1>하니아</h1>
+		</header>
+		<div id="co">
+			<nav>
+				<ul>
+					<li><a href="#">비행편</a></li>
+					<li><a href="#">도시</a></li>
+					<li><a href="#">아일랜드</a></li>
+					<li><a href="#">음식</a></li>
+				</ul>
+			</nav>
+			<main>
+				<article>
+					<h1>도시</h1>
+					<p>하니아는 크레타섬에 있는 하니아 지역의 수도입니다. 도시는 구 시가지와 현대 도시의 구 부분으로 나눌수 있습니다.</p>
+				</article>
+			</main>
+			<aside>
+				<h2>어떤나라입니까</h2>
+				<p>하니아는 크레타섬의 한 도시입니다.</p>
+				<h2>어디에 있습니까</h2>
+				<p>크레타섬은 지중해의 그리스 섬입니다.</p>
+				<h2>어떤방법으로 갈 수 있나요</h2>
+				<p>유럽 각지에서 하니아 공항에 도착할 수 있어요.</p>
+			</aside>
+		</div>
+		<footer>
+			<p>브라우저 창 크기를 조절하면 내용이 크기 조절에 따라 어떻게 반응하는지 확인하십시오</p>
+		</footer>
+	</body>
+</html>

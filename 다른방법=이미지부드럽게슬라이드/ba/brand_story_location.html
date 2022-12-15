@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>그린 베이커리</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="nav.js"></script>
+	<link rel="stylesheet" href="include.css">
+	<script>	
+	/* 프리로더 */	
+		var ff;
+		function zzz() {			
+			ff=setTimeout(mapp,100);
+		};	
+		function mapp(){
+			//document.getElementById("zido").style.display = "block";
+			document.getElementById("loader").style.display = "none";		
+		};	
+	</script>
+	<style>
+	/* Main_ nav */
+	main {width:360px; }
+	
+	main>nav {width:360px; height:auto; left:0;  box-shadow:none; font-size:1rem; padding-top:0; border-bottom:1px solid #cacaca; color:black;font:400 1rem/30pt 나눔고딕;}
+	main>nav>ul {display:flex; width:330px; margin:auto; list-style:none;}
+	main>nav>ul>li {flex-grow:1;letter-spacing:-1px; border:none; padding:3.2pt 12pt; text-align:center;}
+	main>nav>ul>li:last-child {font-weight:500; color:#672222; border-bottom:1px solid #762323;}
+	main>nav a {color:black; text-decoration:none;}
+	/* 메인의 첫번째 섹션 */
+	main>section:first-of-type {display:flex; color:black; width:330px; margin:15pt auto 5pt auto; padding-bottom:7pt; border-bottom:2px solid #666;}
+	main>section:first-of-type>span {font-size:.9rem; font-weight:500;}
+	main>section:first-of-type>form {font-size:.9rem; font-weight:500; flex-grow:3; text-align:right; }
+	main>section:first-of-type select {padding:5pt 60pt 6pt 5pt;  border:1px solid #ddd; }
+	/* 메인의 두번째 섹션 */
+	main>section:nth-of-type(2)>ul {overflow:auto; width:330px; margin:auto; color:black; }
+	main>section:nth-of-type(2)>ul>li {display:flex; border-bottom:1px solid #ddd; padding:4pt 0 3pt 0;}
+	main>section:nth-of-type(2)>ul b {font:500 .92rem 나눔고딕; border:1px solid #999; flex-basis:25pt; border-radius:10pt; text-align:center; padding:2pt; margin:5pt 12pt 5pt 5pt; color:#888; }
+	main>section:nth-of-type(2)>ul i {font:500 normal .93rem 나눔고딕; color:#222;   }
+	
+	/* 지도 아이프레임 */
+	section h2 {display:none;}
+	section iframe {border:0; width:330px; height:400px; margin:auto;}	
+	</style>
+</head>
+<body id="top" onload="zzz()">
+<h1>그린 베이커리_ 브랜드 스토리</h1>
+<?php include("top.inc") ?>
+<main>
+	<h1><img src="images/brand_story_h1.jpg" alt="브랜드 스토리"></h1>
+	<nav>
+		<ul>
+			<li><a href="brand_story.html">그린베이커리 소개</a></li>
+			<li><a href="brand_story_news.html">뉴스&공지사항</a></li>
+			<li>오시는 길</li>
+		</ul>
+	</nav>
+	<section>
+		<h2>구글지도</h2>
+	    <div id="loader"></div>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.003059963981!2d126.72985441564587!3d37.50784597980889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b7da58b409873%3A0xdcdf2b199d9daccd!2z7J247LKc6rSR7Jet7IucIOu2gO2Pieq1rCDquLjso7zroZwgNjIz!5e0!3m2!1sko!2skr!4v1484546562130" width="600" height="450"></iframe>
+	</section>
+</main>
+<?php include("footer.inc") ?>
+<a href="#top"><img src="images/ico_top.gif" alt="위로" id="icoTop"></a>
+</body>
+</html>

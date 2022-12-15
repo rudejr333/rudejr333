@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #wab{
+            border: solid red;
+            width: 100%
+
+        }
+        #wab>section{
+            width: 800px;
+            margin: auto;
+            border: solid green;
+        }
+        #wab>section>h2,{text-align: center;}
+        #input_box{
+            border: solid pink ;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="wab">
+    <section>
+        <h2>모의고사 상담 예약하기</h2>
+        <h3>상담 예약 신청 시 학원에서 안내 전화를 드리며 더욱 자세한 상감이 가능합니다.</h3>
+        <form action="form_lode.html" method="POST" name="form_test" accept-charset="UTF-8">
+            <div id="input_box">
+                응시할 지점  
+                <select id="jijum" name="jijum">
+                    <option>
+                    </option>
+
+                </select>
+                신청자 이름  <input type="text">
+                전화 번호    <input type="tel">
+                지역 : 
+            </div>
+            <div>
+                <input type="submit" value="제출하기">
+            </div>
+        </form>
+    </section>
+</div>
+    
+</body>
+</html>

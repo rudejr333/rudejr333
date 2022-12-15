@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>그린 베이커리</title>
+	<meta charset="utf-8">	
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+	/*** 전체 스크립트 ***/
+	$(document).ready(function(){
+		setTimeout(function(){	
+			$("section:first-child").css("background","skyblue")
+		},800);
+		setInterval(function(){
+			$("section:last-child").animate({left:"+=20px"})
+		},500);
+	});
+	</script>
+	<style>
+		section:first-child {width:600px; height:200px; background:gold;}
+		section:last-child {width:600px; height:200px; background:pink; position:relative; }
+	</style>
+	<body>
+		<section>
+			<h1>첫번째 섹션</h1>
+		</section>
+		<section>
+			<h1>두번째 섹션</h1>
+		</section>
+	</body>
+	</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html rang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>3D 입체 효과 perspective 속성</title>
+<style>
+#div1{position:relative;height:150px;width:150px;margin:60px auto;border:solid blue;perspective:50px;}
+#div1{position:relative;height:150px;width:150px;margin:60px auto;border:solid blue;perspective:50px;}
+
+#div2{height:40px;padding:40px; position:absolute; left:6px;border:1px solid red; background:rgb(255,0,0,0.5); transition:0.5s;border: solid red}
+
+#div2:hover {transform-style:preserve-3d;transform:rotatex(45deg);backface-visibility:visibility}
+
+p{margin-top:38px;display:none;}
+#div2:hover p{display:block;}
+
+
+</style>
+</head>
+<body>
+<h1>3D 입체 효과 perspective 속성</h1>
+<h2>perspective:100px</h2>
+<div id="div1">div1
+	<div id="div2">div2 <p>짜짠!~</p></div>
+</div>
+</body>
+</html>

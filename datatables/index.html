@@ -82,9 +82,9 @@ $(document).ready(function () {
 		document.getElementById('pop').innerHTML =`
 			<tr><td>아이디 : ${data.id}</td><td>${data.name}</td><td>${data.location}</td></tr>`;
 		$('#pop_bg').css('display','block');
-        /* alert('아이디 ' + data.id + "이름 " + data.name + "지역" + data.location); */
+        alert('아이디 ' + data.id + "이름 " + data.name + "지역" + data.location);
 
-		/* fetch('./data.json')
+		fetch('./data.json')
 		.then(res =>{
 			return res.json();
 		})
@@ -101,7 +101,7 @@ $(document).ready(function () {
 		})
 		.catch(err => {
 			console.log('Fatch Error',err);
-		}); */
+		});
     });
 });
 

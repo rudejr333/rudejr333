@@ -1,0 +1,46 @@
+<!DOCTYPEh tml>
+<html>
+<head>
+	<meta charset="utf-8" >
+	<title>퍼센트만큼 늘어나는 막대형 진행바</title>
+	<style>
+	#sk{width:100%; background:#dedede; text-align:center;}
+	#pr{width:1000px; margin:auto; display:flex; border:1px solid red;}
+	#pr>div{width:150px; margin:auto;border:1px; solid white; font-weight:bold;}
+	#pr>div>div{position:relative; width:130px; height:130px; border-radius:50%; margin:auto; display:table; padding:5px; margin-bottom:10px;}
+	#pr b{position:absolute; top:37%;left:39%; display:table-cell; background:#dedede; border-radius:50%;}
+	</style>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.js"></script>
+
+	<script>
+$(document).ready(function(){
+	var my=$("#pr>div>div");
+	my.easyPieChart({
+		onStep: function(x,y,z){
+				$(this.el).find("span").text(Math.round(z));
+			}
+		});
+		var me=window.me=my.data("easyPieChart");
+	});
+</script>
+
+	
+</head>
+<body>
+
+<section id="sk">
+	<h1>프로그램 작업 역량</h1>
+	<div id="pr">
+		<div><div data-percent="90"><b><span></span>%</b></div>포토샵</div>
+		<div><div data-percent="85"><b><span></span>%</b></div>일러스트</div>
+		<div><div data-percent="80"><b><span></span>%</b></div>HTML/CSS</div>
+		<div><div data-percent="75"><b><span></span>%</b></div>jQuery</div>
+	<div>
+</section>
+
+
+
+</body>
+</html>

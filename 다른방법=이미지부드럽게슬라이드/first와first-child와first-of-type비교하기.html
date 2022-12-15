@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>가상선택자 유형에서 :first와 :first-child와 :fist-of-type 비교하기</title>
+		<style>
+		section		{border:3px solid red; margin:10px;}
+		p			{background:#eee;}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+		
+			$("button").click(function(){
+				var $btn = $(this).text(); /*버튼요소 내부의 글자를 반환*/
+				$("p").css("background","transparent");/*배경:투명*/
+				$("p" + $btn).css("background","orange");/*배경:오렌지색*/
+			});				
+			
+		});
+		</script>
+	</head>
+	<body>
+		
+		<section>
+			<h1><p>섹션1</p></h1>
+			<p>섹션의 첫번째 하위요소</p>
+		</section>
+		<section>
+			<h1>섹션2</h1>
+			<p>섹션의 첫번째 하위요소</p>
+			<p>섹션의 첫번째 하위요소</p>
+		</section>
+		<p>body의 첫번째 하위요소</p>
+		<section>
+			<h1><p>섹션3</p></h1>
+			<span>섹션의 첫번째 하위요소</span>
+			<p>섹션의 첫번째 하위요소</p>
+			<p>섹션의 첫번째 하위요소</p>
+			<span>섹션의 첫번째 하위요소</span>
+		</section>
+		<section>
+			<h1>섹션4</h1>
+			<p>섹션의 첫번째 <p>하위요소</p></p>
+			<p>섹션의 첫번째 하위요소</p>
+		</section>
+		
+		<button>:first</button>
+		<button>:first-child</button>
+		<button>:first-of-type</button>
+		
+	</body>
+</html>

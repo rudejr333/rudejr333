@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<style>
+#ba0,#ba1,#ba2 {position:absolute;}
+#ba1,#ba2{display:none;}
+#ban {position:relative;overflow:hidden;width:600px;height:300px; border:2px dashed red;}
+</style>
+
+<script>
+$(document).ready(function(){
+    bans();     
+    function bans(){
+        $("#ba0").delay(1000).animate({left:'-600px'});
+        $("#ba1").delay(1000).css({"display":"block","left":"600px"}).animate({left:'0'},function(){
+
+            $("#ba1").delay(1000).animate({left:'-600px'});
+            $("#ba2").delay(1000).css({"display":"block","left":"600px"}).animate({left:'0'},function(){
+
+                $("#ba2").delay(1000).animate({left:'-600px'});
+                $("#ba0").delay(1000).css({"display":"block","left":"600px"}).animate({left:'0'},bans);
+            });
+        });
+    }
+});
+</script>
+<body>
+
+<div id="ban">
+	<img src="https://www.google.co.kr/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" width="600" height="300" id="ba0">
+	<img src="http://img.naver.net/static/www/u/2013/0731/nmms_224940510.gif" width="600" height="300" id="ba1">
+	<img src="http://icon.daumcdn.net/w/icon/1606/30/105915014.png" width="600" height="300" id="ba2">
+</div>
+</body>
+</html>

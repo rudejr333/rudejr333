@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>그린 베이커리: 진행중인 클래스</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>-->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="nav.js"></script>
+	<link rel="stylesheet" href="include.css">
+	<style>
+	/* Main_ nav */
+	main {width:360px; }
+	
+	main>nav {width:360px; height:auto; left:0;  box-shadow:none; font-size:1rem; padding-top:0; border-bottom:1px solid #cacaca; color:black;font:400 1rem/30pt 나눔고딕; position:relative; z-index:0;}
+	main>nav>ul {display:flex; width:330px; margin:auto; list-style:none;}
+	main>nav>ul>li {flex-grow:1;letter-spacing:-1px; border:none; padding:3.2pt 12pt; text-align:center;}
+	main>nav>ul>li:nth-child(2) {font-weight:500; color:#672222; border-bottom:1px solid #762323;}
+	main>nav a {color:black; text-decoration:none;}
+	
+	main>p {width:320px; margin:auto; color:#444; font:400 .9rem/14.5pt 나눔고딕; text-align:justify; letter-spacing:-1px; }
+	main>p:first-of-type {text-align:center; padding:20pt 0 5pt 0;}
+	main>p:first-of-type>img:hover {transform:scale(1.1) translateY(-10pt); opacity:0.75;}
+		
+	.txt11::first-line {font-size:1.35rem; letter-spacing:-1px; font-weight:bold; line-height:30pt; }	
+	.txt11>span {border:1px solid red; color:red; font:200 8pt arial; padding:1.5pt 5pt; margin-left:2pt; border-radius:7pt;}
+	.txt11 {margin-bottom:20pt;}
+	
+	main>ul>li>i {font-style:normal; margin-left:41pt; }
+	main>ul {color:#444; font:400 .9rem/14.5pt 나눔고딕; width:320px; margin:auto; margin-bottom:20pt; list-style:none; }
+	
+	.write			{border-top:2px solid #333; border-bottom:1px solid #bbb; color:#222; width:330px; margin:auto; }
+	.write th		{border-bottom:1px solid #bbb; width:110px; background:#f8f8f8; padding:3pt 6pt; text-align:left; color:#222; font-weight:400; }
+	.write td		{border-bottom:1px solid #bbb; padding:3pt; } 
+	.write, .write th, .write td	{border-collapse:collapse; }
+	.write input[type="text"]	{width:130pt; border:1px solid #ddd; padding:2pt; margin:3pt; }
+	.write .phone input	{width:33pt; border:1px solid #ddd; padding:2pt;  margin:3pt; }
+	.write .email input {ime-mode:inactive;}
+	.write .email input,
+	.write .num input,
+	.write textarea 		{ border:1px solid #ddd; padding:2pt;  margin:3pt; }
+	main div {width:220px; margin:10pt auto; }
+	main div>input	{width:100px; height:35px; border:1px solid #bdbdbd; background:white; }
+	main div>input[type="submit"]	{background:#592424; color:white;}
+	.kr						{ime-mode:active;}
+	</style>
+	<script>
+		/* .write의 [신청하기]버튼 클릭하면 동작 :start */
+		$(document).ready(function(){ 
+			$('main input[type="submit"]').click(function(){
+				if($('#box1').val().length==0)	{
+					alert("이름을 입력하세요.");
+					$('#box1').focus(); return false; }
+				if($('#box2').val().length==0){ 
+					alert("나이를 입력하세요.");		
+					$('#box2').focus(); return false; }
+				if($('#box4').val().length==0){ 
+					alert("휴대폰번호를 입력하세요."); 
+					$('#box4').focus(); return false; }
+				if($('#box5').val().length==0){ 
+					alert("휴대폰번호를 입력하세요."); 
+					$('#box5').focus(); return false; }
+				if($('#box6').val().length==0){ 
+					alert("이메일를 입력하세요."); 
+					$('#box6').focus(); return false; }
+				if($('#box7').val().length==0){ 
+					alert("신청인원수를 입력하세요."); 
+					$('#box7').focus(); return false; }
+				if($('form>.write>:eq(5) input[type="radio"]').val().length==0){
+					alert("베이킹 경험 여부를 체크 하세요.");
+					$('form>.write>:eq(5) input[type="radio"]').focus(); return false; }
+			});		
+		});		/* .write의 [신청하기]버튼 클릭하면 동작 :end */
+	</script>
+</head>
+<body id="top">
+<h1>그린 베이커리: 진행중인 클래스</h1>
+<?php include("top.inc") ?>
+<main>
+	<h1><img src="images/baking_h1.jpg" alt="베이킹 클래스"></h1>
+	<nav>
+		<ul>
+			<li><a href="baking.html">클래스 소개</a></li>
+			<li><a>진행중인 클래스</a></li>
+			<li><a href="javascript:alert('작업중')">클래스 후기</a></li>
+		</ul>
+	</nav>
+	<p><img src="images/baking_1_1.jpg" alt="빵만드는 재료"></p>
+	<p class="txt11">8차 베이킹 클래스 모집 <span>D - 9</span><br>
+		이번 베이킹 클래스와 품목은 풀리쉬를 이용한 바게트, 화이트 치아바타/오리지널 치아바타, 녹차스콘 입니다. 바게트와 치아바타를 반죽한 후, 휴식 시간을 갖는 동안 단시간에 만들 수 있는 스콘을 만들 예정입니다.</p>
+	<ul>
+		<li>수업날짜 : 2017년 11월 2일 월요일</li>
+		<li>수업시간 : 09시 ~ 13시 (4시간)</li>
+		<li>수업장소 : 인천광역시 부평구 삼산동 대덕리치아노 108호<br><i>그린베이커리 제빵실</i></li>
+		<li>신청방법 : 아래 양식을 모두 작성하여 신청하시면, <i>담당자가 확인 후
+	      연락드립니다.</i><br><i><a href="tel:032-363-2505">&#9742; 전화(032-363-2505)</a>나 방문 접수모두 환영합니다.</i></li>
+	</ul>	
+	<form action="send_ok.html">
+		<table class="write">
+			<tr>
+				<th>신청자 이름</th>
+				<td><input type="text" class="kr" id="box1"></td>
+			</tr>
+			<tr>
+				<th>나이</th>
+				<td><input type="number" min="20" max="90" id="box2"></td>
+			</tr>
+			<tr>
+				<th>휴대폰 번호</th>
+				<td class="phone"><input type="tel" value="010" id="box3"> - <input type="tel" id="box4" maxlength="4"> - <input type="tel" id="box5" maxlength="4"></td>
+			</tr>
+			<tr>
+				<th>이메일 주소</th>
+				<td class="email"><input type="email" id="box6"></td>
+			</tr>
+			<tr>
+				<th>신청 인원수</th>
+				<td class="num"><input type="number" min="1" max="10" id="box7"> 명</td>
+			</tr>
+			<tr>
+				<th>베이킹<br>경험 여부</th>
+				<td><input type="radio" id="y" name="yn"><label for="y">예</label> &nbsp;&nbsp;<input type="radio" id="n" name="yn"><label for="n">아니오</label></td>
+			</tr>
+			<tr>
+				<th>하고싶은 말<br>(선택사항)</th>
+				<td><textarea cols="23" rows="5" class="kr"></textarea></td>
+			</tr>
+		</table>	
+		<div><input type="reset" value="취소">  &nbsp;&nbsp;<input type="submit" value="신청하기"></div>
+	</form>
+</main>
+<?php include("footer.inc") ?>
+<a href="#top"><img src="images/ico_top.gif" alt="위로" id="icoTop"></a>
+</body>
+</html>
+	

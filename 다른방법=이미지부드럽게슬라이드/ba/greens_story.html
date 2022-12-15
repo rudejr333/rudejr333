@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>그린 베이커리: Green's 이야기</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>-->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="nav.js"></script>
+	<link rel="stylesheet" href="include.css">
+	<style>
+	/* Main_ nav */
+	main {width:360px; }
+	
+	main>nav {width:360px; height:auto; left:0;  box-shadow:none; font-size:1rem; padding-top:0; border-bottom:1px solid #cacaca; color:black;font:400 1rem/30pt 나눔고딕; position:relative; z-index:0; margin-bottom:30px; }
+	main>nav>ul {display:flex; width:100px; margin:auto; list-style:none;}
+	main>nav>ul>li {flex-grow:1;letter-spacing:-1px; border:none; padding:3.2pt 12pt; text-align:center;}
+	main>nav>ul>li:first-child {font-weight:500; color:#672222; border-bottom:1px solid #762323;}
+	main>nav a {color:black; text-decoration:none;}
+	
+	main>section {position:relative;width:320px; height:237px; margin:auto; margin-bottom:10pt; }
+	main>section>div { position:absolute; width:100%; height:50px; line-height:14pt; bottom:0; background:rgba(89,36,36,0.7); font-weight:bold; padding:5pt 0 0 10pt; }
+	main>section:nth-of-type(3)>div,
+	main>section:nth-of-type(4)>div,
+	main>section:nth-of-type(5)>div	{text-align:center; padding:16px 0 0 10px; }
+	
+	/* 아래쪽: 하단 1,2,3,4,5 */
+	main>ul {display:flex; width:220px; list-style:none; color:#666; margin:10pt auto 20pt auto; }
+	main>ul>li {padding:3.5pt 6pt; cursor:pointer; }
+	main>ul>li:first-child,
+	main>ul>li:last-child	{font-size:1.5rem;}
+		
+	.box1 {background:#511c1c; color:white;} 
+	</style>
+</head>
+<body id="top">
+<h1>그린 베이커리:  Green's 이야기</h1>
+<?php include("top.inc") ?>
+<main>
+	<h1><img src="images/greens_story_h1.jpg" alt="Green's 이야기"></h1>
+	<nav>
+		<ul>
+			<li><a>Green's 공간</a></li>
+		</ul>
+	</nav>
+	<section><img src="images/greens_story_1.jpg" alt="빵만들기"><div>복잡한 성형이 필요없이 쉽게 만들 수 있는 치아바타! 그중에서도 인기 많은 더블치즈</div></section>
+	<section><img src="images/greens_story_2.jpg" alt="빵만들기"><div>높은 내부 온도로 인해 발효 타이밍 잡기가 어렵고<br>빵이 눅눅해지기 쉬운 여름</div></section>
+	<section><img src="images/greens_story_3.jpg" alt="빵만들기"><div>밀가루를 만진다는 공통 분모</div></section>
+	<section><img src="images/greens_story_4.jpg" alt="빵만들기"><div>바게트보다도 훨씬 반죽이 진 치아바타</div></section>
+	<section><img src="images/greens_story_5.jpg" alt="빵만들기"><div>그날그날 환경에 따른 반죽의 상태</div></section>
+	<ul>
+		<li>&larr;</li>
+		<li class="box1">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>&rarr;</li>
+	</ul>
+</main>
+<?php include("footer.inc") ?>
+<a href="#top"><img src="images/ico_top.gif" alt="위로" id="icoTop"></a>
+</body>
+</html>
+	

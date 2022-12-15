@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>롤오버효과: 마우스대면_투명텍스트여역_아래서위로올라옴</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#effectArea>section").mouseenter(function(){
+			$(this).children().stop().animate({height:"100%"});
+			$(this).find("h1").hide();
+		});
+		$("#effectArea>section").mouseleave(function(){
+			$(this).children("div").stop().animate({height:"150px"});
+			$(this).find("h1").show();
+		});
+	});
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{font:12pt "나눔고딕","dotum";}
+#effectArea{width:95%; height:350pt;margin:auto;display:flex;font-size:15pt;}
+#effectArea>section {flex:1;margin:5pt;position:relative;}
+#effectArea>section figure a {display:block;margin:20pt;font-size:1.6rem;text-decoration:none;color:white;text-align:center;}
+#effectArea>section figure a:hover{text-decoration:underline;}
+#effectArea>section span{display:block;;padding:20pt;text-align:justify;line-height:2.2rem;}
+#effectArea>#se1{background:url("img/1.jpg") center/cover;}
+#effectArea>#se2{background:url("img/2.jpg") center/cover;}
+#effectArea>#se3{background:url("img/3.jpg") center/cover;}
+#effectArea div{position:absolute;bottom:0;background:rgb(55,60,74,0.8);width:100%;height:150px;color:white;overflow:hidden;}
+#effectArea h1{font-weight:normal; line-height:2.5rem;text-align:center;vertical-align:middle;display:table-cell;width:100vw;height:110pt;padding:0 40pt;}
+#effectArea img{width:100px; height:100px;border-radius:50%;display:block;margin:auto;margin-top:50px;}
+</style>	
+</head>
+<body>
+	<div id="effectArea">
+		<section id="se1">
+			<div>
+				<h1>품고 보이는 피어나기 꽃이 생생하며</h1>
+				<figure>
+					<img src="img/1.jpg" alt="띵콩">
+					<figcaption><a href="#">띵콩</a></figcaption>
+				</figure>
+				<span>
+					끓는 것이 이것은 사막이다. 청춘의 우리의 수 끓는 설레는 청춘에서만 뿐이다. 청춘 풍부하게 무한한 황금시대의 인간이 이는 있으랴? 튼튼하...
+				<span>
+			</div>
+		</section>
+		<section id="se2">
+			<div>
+				<h1>생명을 바이며, 용기가 얼음에</h1>
+				<figure>
+					<img src="img/2.jpg" alt="무한한">
+					<figcaption><a href="#">띵콩</a></figcaption>
+				</figure>
+				<span>
+					끓는 것이 이것은 사막이다. 청춘의 우리의 수 끓는 설레는 청춘에서만 뿐이다. 청춘 풍부하게 무한한 황금시대의 인간이 이는 있으랴? 튼튼하...
+				<span>
+			</div>
+		</section>
+		<section id="se3">
+			<div>
+				<h1>피어나기 꽃이 생생하며</h1>
+				<figure>
+					<img src="img/3.jpg" alt="설레는">
+					<figcaption><a href="#">띵콩</a></figcaption>
+				</figure>
+				<span>
+					끓는 것이 이것은 사막이다. 청춘의 우리의 수 끓는 설레는 청춘에서만 뿐이다. 청춘 풍부하게 무한한 황금시대의 인간이 이는 있으랴? 튼튼하...
+				<span>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

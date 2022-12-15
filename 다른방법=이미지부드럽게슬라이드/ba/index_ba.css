@@ -1,0 +1,74 @@
+	* { margin:0; padding:0; }
+	html, body { font:100 10pt/13pt 나눔고딕; color:white; width:360px; }	
+	
+	/* 상단: 내비게이션 */
+	#full_black {position:absolute; z-index:1; width:360px; height:1000pt; background:black; opacity:.5;  display:none; }
+	body>nav {position:absolute; z-index:10; width:160px; height:364px; box-shadow:2pt 2pt 7pt black; background:white; color:black;font:400 1.15rem/30pt 나눔고딕;  padding-top:20pt; left:-170px; }
+	body>nav ul { list-style:none; }
+	body>nav ul :first-child {font-weight:bold; font-size:1.2rem; }
+	body>nav ul li {border-bottom:1px solid gray; padding:3.2pt 12pt; }
+	body>nav ul li a {color:black; text-decoration:none; }
+	
+	/* 상단 */
+	nav h2, h1, header>h2, main>h2 { display:none; }
+	header { width:360px;  background:white; }
+	header>ul { display:flex; }
+	header>ul>:first-child { margin:19px; }
+	header>ul>:last-child { margin:19px 0 0 60px; }
+		
+	main {width:calc(300px + 60px); }
+	
+	/* 메인의 첫번째 섹션: 타이틀 */
+	main> section:first-of-type {text-align:center; padding-top:90px;  height:calc(304px - 90px);  background:url("images/con_1_bg.jpg"); }
+	main> section:first-of-type>h3 {font:2.7rem/2.5rem "Oswald"; text-shadow:0px 0px 5px black; margin-bottom:10pt; }
+	main> section:first-of-type>em {font:normal 1.2rem "나눔고딕"; letter-spacing:-1px; text-shadow:0px 0px 5px black; }
+	
+	/* 메인의 첫번째 섹션: 흰색 원형 아이콘 */
+	#btn_circle {width:70px; display:flex; margin:auto; margin-top:20pt; justify-content:space-between;}
+	#btn_circle div {border:2px solid white; border-radius:100%; padding:4pt;}
+	.cir_white {background:white;}
+	
+	/* 메인의 첫번째 섹션: 양쪽 화살표 */
+	main>section:first-of-type>div:nth-of-type(2) {font:100 3rem 나눔고딕; display:flex;justify-content:space-between; margin:-110pt auto 0 auto; width:95%;}
+	
+	/* 메인의 두번째 섹션  */
+	main>section:nth-of-type(2) {height:450px; background:white; color:#341d1d; padding-top:40pt; text-align:center;   }
+	main>section:nth-of-type(2)>h3 {font:2rem/2.5rem "Microsoft New Tai Lue"; }
+	main>section:nth-of-type(2)>em {display:block; font:bold normal 1rem "나눔고딕"; letter-spacing:-1px;}
+	main>section:nth-of-type(2)>div>em {font-style:normal; font-size:1.2rem; display:block; }
+	main>section:nth-of-type(2) ul {list-style:none; ooverflow:auto; width:85%; margin:auto; margin-top:40pt;}
+	main>section:nth-of-type(2) li {float:left; width:48%; text-align:center; margin-bottom:30pt; }
+	main>section:nth-of-type(2) li:first-child {margin-top:7pt;}
+	main>section:nth-of-type(2) li:nth-child(2),
+	main>section:nth-of-type(2) li:nth-child(4)	{ text-align:right; }
+	
+	/* 메인의 두번째 섹션: 빵위의 동그라미 */
+	main>section:nth-of-type(2)>div:first-of-type {position:absolute; width:170px; height:170px; background:rgba(185,118,70,.7); color:white; text-shadow:0px 0px 5px black; border-radius:100%; box-shadow:3px 4px 1px gray; box-sizing:border-box; padding-top:30pt; letter-spacing:-1px; line-height:16pt; margin:12pt 0 0 5pt;  }
+	main>section:nth-of-type(2)>div:first-of-type>i {font:normal 500 1.4rem 나눔고딕; display:block; margin-bottom:5pt; }
+	/*
+	동그라미 이동위치))
+	1번째: margin:12pt 0 0 5pt; 
+	2번째: margin:12pt 0 0 130pt; 
+	3번째: margin:150pt 0 0 5pt; 
+	4번째: margin:150pt 0 0 130pt; 
+	*/
+	/* 메인의 세번째 섹션 */
+	main>section:nth-of-type(3),
+	main>section:nth-of-type(4) {background:url("images/sec_3_bg.jpg"); height:260px;  text-shadow:0 0 3pt black; }
+	main>section:nth-of-type(3)>h3,
+	main>section:nth-of-type(4)>h3 {font:100 1.85rem "Microsoft New Tai Lue"; padding-top:40pt; text-align:center; }
+	main>section:nth-of-type(3)>p,
+	main>section:nth-of-type(4)>p {text-align:center; font-weight:400;}
+	main>section:nth-of-type(3)>div,
+    main>section:nth-of-type(4)>div	{border:1px solid white; width:40%; margin:20pt auto; font:400 .9rem "Microsoft New Tai Lue";  text-align:center; padding:10pt; border-radius:5pt; }
+
+	/* 메인의 네번째 섹션 */
+	main>section:nth-of-type(4) {background:url("images/sec_4_bg.jpg"); }	
+	main>section:nth-of-type(3)>div:hover,
+	main>section:nth-of-type(4)>div:hover	{background:rgba(255,255,255,.5); cursor:pointer; }
+		
+	/* 하단 */
+	iframe {width:360px; height:150px; margin:auto; text-align:center;  overflow:hidden;border:0; outline:0;}
+	
+	/* 위로 가는 화살표 */
+	#icoTop {position:fixed; z-index:1; left:318px; bottom:100pt;}

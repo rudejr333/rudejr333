@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>호버 animation</title>
+<style>
+	*{margin:0; padding:0; box-sizing:border-box;}
+	body{margin-top:30px;}
+	#la{width:1000px; margin:auto; border:1px dashed red;}
+	#la ul{list-style:none; display:flex;position:relative;}
+	#la li{flex:1;}
+	#la a{display:block; width:100%; text-align:center; padding:5px color:black; font-weight:bold; text-decoration:none; border: 3px solid green; transition: 0.5s;}
+	#la a:hover{background:yellow; transform:scale(1.5);}
+	#line{position:absolute;width:24.8%; height:5px;background:red;transition: 0.5s;bottom:0; }
+	
+	li:nth-of-type(1):hover ~#line{transform:translateX(0%);}
+	li:nth-of-type(2):hover ~#line{transform:translateX(100%);}
+	li:nth-of-type(3):hover ~#line{transform:translateX(200%);}
+	li:nth-of-type(4):hover ~#line{transform:translateX(300%);}
+</style>
+</head>
+<body>
+<div id="la">
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#">홈으로</a></li>
+				<li><a href="#">회사소개</a></li>
+				<li><a href="#">갤러리</a></li>
+				<li><a href="#">고객센터</a></li>
+				<div id="line"></div>
+			</ul>
+		</nav>
+	</header>
+</div>
+</body>
+</html>

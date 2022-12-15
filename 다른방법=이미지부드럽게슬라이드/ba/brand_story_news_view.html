@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>그린 베이커리</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>	
+	<script src="nav.js"></script>
+	<link rel="stylesheet" href="include.css">
+	<script>
+	/*** 전체 스크립트 ***/
+	$(document).ready(function(){
+		$("section li:last-child>div").click(function(){
+			$(location).attr("href","brand_story_news.html");
+		});
+	});
+	</script>	
+
+	<style>	
+	/* Main_ nav */
+	main {width:360px; }
+	
+	main>nav {width:360px; height:auto; left:0;  box-shadow:none; font-size:1rem; padding-top:0; border-bottom:1px solid #cacaca; color:black;font:400 1rem/30pt 나눔고딕;}
+	main>nav>ul {display:flex; width:330px; margin:auto; list-style:none;}
+	main>nav>ul>li {flex-grow:1;letter-spacing:-1px; border:none; padding:3.2pt 12pt; text-align:center;}
+	main>nav>ul>li:nth-child(2) {font-weight:500; color:#672222; border-bottom:1px solid #762323;}
+	main>nav a {color:black; text-decoration:none;}
+
+	/* 메인의 첫번째 섹션 */
+	main>section>h2 {display:none;}
+	
+	main>section:first-of-type>ul {overflow:auto; width:330px; margin:auto; color:black; }
+	main>section:first-of-type>ul>li { border-bottom:1px solid #ddd; padding:8pt 0 4pt 0;}
+	
+	.textRed {color:red !important;border:1px solid red !important; }	
+	
+	main>section:first-of-type>ul>.listTxt	{display:flex;}
+	main>section:first-of-type>ul>.listTxt>span {font:500 .93rem 나눔고딕; flex-basis:35pt; padding-top:5pt;}
+	
+	main>section:first-of-type>ul b { display:inline-block; font:500 .92rem 나눔고딕; border:1px solid #999; flex-basis:25pt; border-radius:10pt; text-align:center; padding:2pt; margin:3pt 12pt 5pt 5pt; color:#888; }
+	main>section:first-of-type>ul i		{font:500 normal .93rem 나눔고딕; color:#222;   }
+	main>section:first-of-type>ul p	{font:400 normal .9rem/11pt 나눔고딕; color:#222;  margin-top:8pt; }
+	
+	main>section:first-of-type>ul>li:nth-child(2) {padding-bottom:20pt; border-bottom:2px solid #666;}
+	
+	main>section:first-of-type>ul>li:last-child {text-align:center; padding-top:20pt; padding-bottom:30pt;}
+	main>section:first-of-type>ul>li:last-child>div {width:60pt; margin:auto; padding:10pt; text-align:center; border:1px solid #ddd; cursor:pointer; }
+	main>section:first-of-type>ul>li:last-child>div:hover {background:#eee;}
+	</style>
+</head>
+<body id="top">
+<h1>그린 베이커리_ 브랜드 스토리</h1>
+<?php include("top.inc") ?>
+<main>
+	<h1><img src="images/brand_story_h1.jpg" alt="브랜드 스토리"></h1>
+	<nav>
+		<ul>
+			<li><a href="brand_story.html">그린베이커리 소개</a></li>
+			<li><a href="brand_story_news.html">뉴스&공지사항</a></li>
+			<li><a href="brand_story_location.html">오시는 길</a></li>
+		</ul>
+	</nav>
+	<section>
+		<h2>게시판 내용보기</h2>
+		<ul>
+			<li class="listTxt">
+				<b>뉴스</b>
+				<i>3개월 연구 끝에 탄생한 신메뉴 출시!<br>2017.02.24</i>
+			</li>
+			<li>
+				<img src="images/bakery_1.jpg" alt="빵" width="330" height="180">
+				<p>얼음 새가 들어 못할 방지하는 충분히 없는 그들은 아름다우냐?</p><p>남는 청춘에서만 그들은 우리는 하지 청춘이 가슴에 듣는다. 인도하겠다는 군영과 얼마나 할지라도 아름다우냐? 그들은 창공에 불어 이상이 투명하되 수 보라. 굳세게 거친 눈에 교향악이다.</p><p>싶이 할지라도 위하여서, 얼마나 천고에 것은 원질이 뿐이다.꽃이 무엇을 우리의 속에 피가 위하여, 옷을 사막이다. 갑 힘차게 있음으로써 위하여서. 풍부하게 바이며, 시들어 피다.</p><p>것은 용감하고 속잎나고, 반짝이는 같지 살 싹이 심장은 사막이다.</p>
+			</li>
+			<li class="listTxt">
+				<span>이전글</span>
+				<b>뉴스</b>
+				<i>그린베이커리 드디어 이사합니다~<br>2017.02.19</i>
+			</li>
+			<li class="listTxt">
+				<span>다음글</span>
+				<b class="textRed">공지</b>
+				<i>일부 메뉴 가격 인상에 대한 안내<br>2017.01.25</i>
+			</li>
+			<li>
+				<div>목록</div>
+			</li>				
+		</ul>
+	</section>
+</main>
+<?php include("footer.inc") ?>
+<a href="#top"><img src="images/ico_top.gif" alt="위로" id="icoTop"></a>
+</body>
+</html>

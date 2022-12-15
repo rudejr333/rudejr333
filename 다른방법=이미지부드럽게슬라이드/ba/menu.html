@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>그린베이커리 메뉴판</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="nav.js"></script>
+	<link rel="stylesheet" href="include.css">
+	<script>
+	$(document).ready(function(){
+	/* 두번째 섹션: 빵위의 원형 이동 */
+		$("main>section:nth-of-type(1) li").click(function(){
+			var circle=$("main>section:nth-of-type(1) li").index(this);
+			//alert("하이");
+			switch(circle){
+				case 0: $("main>section:nth-of-type(1)>div:first-of-type").animate({margin:"0pt 0 0 5pt"}); 
+						  $("main>section:nth-of-type(1)>div:first-of-type").html(						  
+								"<em>순 애플 통밀 브래드</em>상큼한 예산 사과가<br>들어있어 더욱 맛있게<br>즐길 수 있는 부드럽고<br>달백한 통밀빵"										  
+				); break;
+				case 1: $("main>section:nth-of-type(1)>div:first-of-type").animate({margin:"0pt 0 0 130pt"});
+				          $("main>section:nth-of-type(1)>div:first-of-type").html(
+								"<em>생크림 통밀 브래드</em>상큼한 생크림이<br>들어있어 더욱 맛있게<br>즐길 수 있는 부드럽고<br>달백한 생크림빵"
+				); break;
+				case 2: $("main>section:nth-of-type(1)>div:first-of-type").animate({margin:"110pt 0 0 5pt"});
+				          $("main>section:nth-of-type(1)>div:first-of-type").html(
+								"<em>치즈 통밀 브래드</em>상큼한 치즈가<br>들어있어 더욱 맛있게<br>즐길 수 있는 부드럽고<br>단백한 치즈빵"
+				); break;
+				case 3: $("main>section:nth-of-type(1)>div:first-of-type").animate({margin:"110pt 0 0 130pt"});
+						  $("main>section:nth-of-type(1)>div:first-of-type").html(
+								"<em>영양 통밀 식빵</em>상큼한 건포토가 듬뿍<br>들어있어 더욱 맛있게<br>즐길 수 있는 부드럽고<br>고소한 양양식빵"
+				); break;
+				case 4: $("main>section:nth-of-type(1)>div:first-of-type").animate({margin:"220pt 0 0 5pt"});
+						  $("main>section:nth-of-type(1)>div:first-of-type").html(
+								"<em>곰보빵</em>오돌도돌<br>아삭아삭 더욱 맛있게<br>즐길 수 있는 부드럽고<br>달백한 곰보빵"
+				); break;
+				case 5: $("main>section:nth-of-type(1)>div:first-of-type").animate({margin:"220pt 0 0 130pt"});
+						  $("main>section:nth-of-type(1)>div:first-of-type").html(
+								"<em>생크림식빵</em>초촉한 생크림이<br>식빵안에 가득~ 더욱 맛있게<br>즐길 수 있는 부드럽고<br>달달한 생크림식빵"
+				); break;
+				case 6: $("main>section:nth-of-type(1)>div:first-of-type").animate({margin:"340pt 0 0 5pt"});
+						  $("main>section:nth-of-type(1)>div:first-of-type").html(
+								"<em>단팥빵</em>국내산 단팥으로<br>가득채워서 더욱 맛있게<br>즐길 수 있는 부드럽고<br>달달한 단팥빵"
+				); break;
+				case 7: $("main>section:nth-of-type(1)>div:first-of-type").animate({margin:"340pt 0 0 130pt"});
+						  $("main>section:nth-of-type(1)>div:first-of-type").html(
+								"<em>무슨무슨빵</em>달콤한 뭐뭐를<br>식빵안에 가득~ 더욱 맛있게<br>즐길 수 있는 부드럽고<br>맛있는 무슨무슨빵"
+				); break;
+				case 8: $("main>section:nth-of-type(1)>div:first-of-type").animate({margin:"460pt 0 0 5pt"});
+						  $("main>section:nth-of-type(1)>div:first-of-type").html(
+								"<em>슨무슨빵</em>국내산 단팥으로<br>가득채워서 더욱 맛있게<br>즐길 수 있는 부드럽고<br>맛있는 무슨무슨빵"
+				); break;
+				case 9: $("main>section:nth-of-type(1)>div:first-of-type").animate({margin:"460pt 0 0 130pt"});
+						  $("main>section:nth-of-type(1)>div:first-of-type").html(
+								"<em>무슨무슨빵</em>달콤한 뭐뭐를<br>식빵안에 가득~ 더욱 맛있게<br>즐길 수 있는 부드럽고<br>맛있는 무슨무슨빵"
+				);
+			}
+		});	
+	});	
+	</script>
+	<style>
+	/* Main_ nav */
+	main {width:360px; }
+	
+	main>nav {width:360px; height:auto; left:0;  box-shadow:none; font-size:1rem; padding-top:0; border-bottom:1px solid #cacaca; color:black;font:400 1rem/30pt 나눔고딕; }
+	main>nav>ul {display:flex; width:250px; margin:auto; list-style:none; }
+	main>nav>ul>li {flex-grow:1;letter-spacing:-1px; border:none; padding:3.2pt 12pt; text-align:center;}
+	main>nav>ul>li:first-child {font-weight:500; color:#672222; border-bottom:1px solid #762323;}
+	main>nav a {color:black; text-decoration:none;}
+	
+	/* 정렬된 빵들 */
+	main>section:first-of-type>ul {width:330px; margin:auto; margin-top:10pt;}
+	main>section:first-of-type>ul>li {float:left;  padding:12pt 0; }
+	
+	main>section>h2 {display:none;}
+	
+	/* 메인의 두번째 섹션: 빵위의 동그라미 */	
+	main>section:first-of-type>div {position:absolute; width:170px; height:170px; background:rgba(185,118,70,.7); color:white; text-shadow:0px 0px 5px black; border-radius:100%; box-shadow:3px 4px 1px gray;padding-top:30pt; letter-spacing:-1px; line-height:16pt; margin-left:10pt; text-align:center;}
+	main>section:first-of-type>div>em {font-style:normal; font-size:1.2rem; display:block;  }
+	/*
+	동그라미 이동위치))
+	1번째: margin:12pt 0 0 5pt; 
+	2번째: margin:12pt 0 0 130pt; 
+	3번째: margin:150pt 0 0 5pt; 
+	4번째: margin:150pt 0 0 130pt; 
+	*/	
+	</style>
+</head>
+<body id="top">
+<h1>그린베이커리: 메뉴판</h1>
+<?php include("top.inc") ?>
+<main>
+	<h1><img src="images/menu_h1.jpg" alt="메뉴"></h1>
+	<nav>
+			<ul>
+				<li>빵</li>
+				<li><a href="menu-1.html">커피</a></li>
+			</ul>
+	</nav>
+	<section>
+		<h2>판매중인 빵들</h2>
+		<div><em>순 애플 통밀 브래드</em>
+				상큼한 예산 사과가 <br>
+				들어있어 더욱 맛있게<br>
+				즐길 수 있는 부드럽고<br>
+				달백한 통밀빵</div>
+		<ul>
+			<li><img src="images/bun1.jpg" alt="빵1"></li>
+			<li><img src="images/bun2.jpg" alt="빵2"></li>
+			<li><img src="images/bun3.jpg" alt="빵3"></li>
+			<li><img src="images/bun4.jpg" alt="빵4"></li>
+			<li><img src="images/bun5.jpg" alt="빵5"></li>
+			<li><img src="images/bun6.jpg" alt="빵6"></li>
+			<li><img src="images/bun7.jpg" alt="빵7"></li>
+			<li><img src="images/bun8.jpg" alt="빵8"></li>
+			<li><img src="images/bun9.jpg" alt="빵9"></li>
+			<li><img src="images/bun10.jpg" alt="빵10"></li>
+			<li><img src="images/bun11.jpg" alt="빵11"></li>
+			<li><img src="images/bun12.jpg" alt="빵12"></li>
+			<li><img src="images/bun13.jpg" alt="빵13"></li>
+			<li><img src="images/bun14.jpg" alt="빵14"></li>
+			<li><img src="images/bun15.jpg" alt="빵15"></li>
+			<li><img src="images/bun16.jpg" alt="빵16"></li>
+			<li><img src="images/bun17.jpg" alt="빵17"></li>			
+		</ul>
+	</section>
+</main>
+<?php include("footer.inc") ?>
+<a href="#top"><img src="images/ico_top.gif" alt="위로" id="icoTop"></a>
+</body>
+</html>
