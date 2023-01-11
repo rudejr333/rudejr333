@@ -1,16 +1,21 @@
  dev - 터미널
 
 ssh -L 2222:10.20.0.142:22 gyongduc@ec2-3-37-66-29.ap-northeast-2.compute.amazonaws.com -p9658
-Rudejr3#
+Rudejr4$
 
 ssh dshare@localhost -p 2222 -i C:\Users\gyong\Documents\aws-pem\dev_instance.pem
+
+dev_adot - 터미널
+ssh -L 2223:10.20.0.246:22 gyongduc@ec2-3-37-66-29.ap-northeast-2.compute.amazonaws.com -p9658
+
+ssh dshare@localhost -p 2223 -i C:/Users\gyong/Documents\aws-pem/adot-dev-php81.cer
 
 
 
 prod - 터미널
 
 ssh -L 2222:10.23.0.124:22 gyongduc@10.23.0.196 -p9658
-Rudejr2@
+Rudejr3#
 
 
 ssh root@localhost -p 2222 -i C:\Users\gyong\Documents\aws-pem\product_instance.pem
@@ -36,3 +41,13 @@ netstat
 netstat -a -o 
 : 실행중인 port 표시, 프로세스id(pid) 표시taskkill /f /pid 1234: 1234 프로세스id(pid) kill하기
 출처: https://killohotel.tistory.com/entry/window-port-죽이기 [박학다식:티스토리]
+
+
+
+배스천 비밀번호 변경 방법 및 확인
+chage -l 아이디(gyongduc)
+- 개인별 만료일 확인
+
+비번 변경
+passwd
+
