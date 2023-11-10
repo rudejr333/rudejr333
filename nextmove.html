@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #container {
+            position: relative;
+            width: 20px;
+            height: 100px;
+        }
+
+        #yourElementId {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            transition: top 1s ease; /* CSS transition 설정 */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="yourElementId"></div>
+    </div>
+
+    <script>
+        const coordinate = [-26, 124, 218, 338];
+        let currentIndex = 0;
+
+        const element = document.getElementById('yourElementId');
+        element.addEventListener('transitionend', () => {
+            if (currentIndex < coordinate.length) {
+                element.style.top = coordinate[currentIndex] + 'px';
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+                element.style.top = '-100px'; // 초기 위치를 화면 위쪽으로 설정
+            }
+        });
+
+        // 초기 위치를 화면 위쪽으로 설정
+        element.style.top = '-100px';
+
+        setInterval(() => {
+            element.style.top = coordinate[currentIndex] + 'px';
+            currentIndex++;
+        }, 1000);
+    </script>
+</body>
+</html>

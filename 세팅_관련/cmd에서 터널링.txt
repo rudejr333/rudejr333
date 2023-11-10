@@ -1,21 +1,20 @@
  dev - 터미널
 
 ssh -L 2222:10.20.0.142:22 gyongduc@ec2-3-37-66-29.ap-northeast-2.compute.amazonaws.com -p9658
-Rudejr4$
+Rudejr8*
 
 ssh dshare@localhost -p 2222 -i C:\Users\gyong\Documents\aws-pem\dev_instance.pem
 
-dev_adot - 터미널
+dev_other - 터미널
 ssh -L 2223:10.20.0.246:22 gyongduc@ec2-3-37-66-29.ap-northeast-2.compute.amazonaws.com -p9658
 
 ssh dshare@localhost -p 2223 -i C:/Users\gyong/Documents\aws-pem/adot-dev-php81.cer
 
 
-
 prod - 터미널
 
 ssh -L 2222:10.23.0.124:22 gyongduc@10.23.0.196 -p9658
-Rudejr3#
+Rudejr7&
 
 
 ssh root@localhost -p 2222 -i C:\Users\gyong\Documents\aws-pem\product_instance.pem
@@ -26,10 +25,10 @@ ECDSA host key for 옆에 있는 호스트를 아래의 명령어로 초기화�
 ssh-keygen -R [ IP or DomainName]
 
 db 비밀번호 변경
-set  PASSWORD = password('Rudejr1!')
-set  PASSWORD = 'Rudejr1!'
+set  PASSWORD = password('Rudejr4$')
+set  PASSWORD = 'Rudejr4$'
 
-
+웍스 네부 Rudejr1!
 
 local_host 작업 공간 cmd로 접속할시
 3306
