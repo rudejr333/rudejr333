@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* accordion-start */
+    .accordion{margin: auto;padding: 0px 10px 58px 28px;width: 727px;}
+    .accordion .terms{overflow: hidden;margin-top: 14px;max-height: 40px;transition: all .5s;}
+    .accordion .terms.on{max-height: 600px;}
+    .accordion .terms_title{height: 40px;display: flex;align-items: center;justify-content: space-between;}
+    .accordion .terms_title label{display: flex;align-items: center;padding:21px 0;padding-left: 14px;color: #595959;}
+    .accordion .terms_title label span{font-size: 20px; font-weight: 600;color: #595959;}
+    .accordion .terms_title input{display: none;}
+    .accordion .terms_title input:checked+i{background: url(https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/check2.png) 0 100% no-repeat;
+    background-size: 20px;}
+    .accordion .terms_title i{display: block;margin-right: 20px;width: 20px;height: 20px;
+    background: url(https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/check2.png) 0 0 no-repeat;
+    background-size: 20px;}
+    .accordion .terms_desc{padding-top: 20px;padding-left: 52px;font-weight: 500;font-size: 16px;color: #BEBEBE;line-height: 19px;}
+    .arrow_icon {display: block;width: 24px;height: 24px;
+        background-image: url(https://d3157wx5zs7nsu.cloudfront.net/3jedu_BW/images/main/select_but.png);
+        background-size: 15px 10px;background-repeat: no-repeat;background-position: center;cursor: pointer;}
+    .terms.on .arrow_icon{animation: checkrow_texton .1s linear forwards;}
+    /* accordion-end */
+    @keyframes checkrow_texton {from {transform: rotate(0deg);}to {transform: rotate(180deg);}}
+    </style>
+</head>
+<body>
+<div class="accordion">
+    <div class="terms">
+        <div class="terms_title">
+            <label>
+                <input type="checkbox" class="select_all validator" id="privacy_chk">
+                <i></i>
+                <span>개인정보 약관 동의 (필수)</span>
+            </label>
+            <b class="arrow_icon"></b>
+        </div>
+        <div class="terms_desc">
+            [개인정보 수집 및 활용 동의]
+            <br><br>㈜디쉐어는 경품 발송을 위해 개인정보보호법에 의거하여 귀하의 개인정보 제공·수집·활용에 대한 동의를 받고자 합니다.<br>
+            <br>① 개인정보 제공·수집·이용에 관한 목적: 경품 증정+학원 방문 일정 조율
+            <br>② 제공·수집 이용 개인정보 항목: 성명, 학교, 학년, 휴대폰 번호
+            <br>③ 개인정보 보유 및 이용기간: 학원 방문일로부터 1년 후 폐기
+            <br>※귀하께서는 개인정보 제공·수집·활용에 대한 동의를 거부하실 수 있으나
+            <br>이는 경품 증정에 필요한 정보로 동의를 거부하실 경우 경품 지급이 제한될 수 있습니다.
+        </div>
+    </div>
+    <div class="terms">
+        <div class="terms_title">
+            <label>
+                <input type="checkbox" name="etc5" class="select_all validator" id="privacy_chk2" value=1>
+                <i></i>
+                <span>개인정보 제 3자 제공 동의 (필수)</span>
+            </label>
+            <b class="arrow_icon"></b>
+        </div>
+        <div class="terms_desc">
+            [개인정보 제3자 제공 동의]
+            <br><br>㈜디쉐어는 경품 발송을 위해 개인정보보호법에 의거하여 귀하의 개인정보를 ㈜조선일보 C콘에 제공하는 것에 대한 동의를 받고자 합니다.<br>
+            <br>①개인정보를 제공받는 주체 : ㈜조선일보 C콘
+            <br>②개인정보 제공·수집·활용에 관한 목적 : 경품 증정
+            <br>③개인정보의 항목 : 휴대폰번호
+            <br>④개인정보 보유 및 이용기간 : 경품증정일로부터 1년 후 폐기<br>
+            <br>귀하께서는 개인정보 제3자 제공에 대한 동의를 거부하실 수 있으나 이는 경품 증정에 필요한 정보로 동의를 거부하실 경우 경품 지급이 제한될 수 있습니다.<br>
+            <br>경품 발송을 위해 보내주신 개인정보는 (주)조선일보 C콘에 제공되며, 경품 발송 외 다른 용도로 절대 사용하지 않습니다.
+        </div>
+    </div>
+    <div class="terms">
+        <div class="terms_title">
+            <label>
+                <input type="checkbox" name="marketing" class="select_all" value=1>
+                <i></i>
+                <span>마케팅 정보 수신 동의 (선택)</span>
+            </label>
+            <b class="arrow_icon"></b>
+        </div>
+        <div class="terms_desc">
+            [마케팅 정보 수집 동의]
+            <br><br>(주)디쉐어는 상담서비스 및 이벤트 참여, 상담 과정에서 귀하로부터 수집한 개인정보를
+            <br>아래의 명시된 목적과 같이 마케팅 활용에 이용할 수 있습니다.<br>
+            <br>- 수집·이용 목적
+            <br>전화 또는 문자메시지(SMS, MMS, 알림톡 등)로 디쉐어 학습 관련 서비스 안내, 온라인 설문 및 이벤트 등 광고성 정보 전달<br>
+            <br>- 이용 항목
+            <br>① 이름, 연락처, 학교, 학년
+            <br>② 상담 과정에서 귀하가 제공하는 정보 및 음성(녹음)<br>
+            <br>- 보유 및 활용 기간
+            <br>신청(수집)일로부터 1년간<br>
+            <br>고객님께서 마케팅 정보 수집 이용에 관한 동의를 거부할 권리가 있습니다.
+            <br>동의하실 경우 상기의 이용항목이 명시된 목적에 따른 마케팅 활용에 이용 될 수 있으며,
+            <br>동의를 거부하실 경우 학습 관련 서비스 및 이벤트 참여가 제한될 수 있습니다.
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+<script>
+/* accordion */
+        const accordion = document.querySelector(".accordion");
+        const arrow = accordion.querySelectorAll(".arrow_icon");
+
+        function toggleAccordion() {
+            const clickedItem = this.parentNode.parentNode;
+            const items = accordion.querySelectorAll(".terms");
+            items.forEach((item) => {
+                if (clickedItem === item) {
+                item.classList.toggle("on");
+                } else {
+                item.classList.remove("on");
+                }
+            });
+        }
+
+        arrow.forEach((arrow_icon) => {
+            arrow_icon.addEventListener("click", toggleAccordion);
+        });
+</script>
