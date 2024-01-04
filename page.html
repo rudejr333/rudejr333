@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .pagination {
+      display: inline-block;
+    }
+
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="items"></div>
+  <div class="pagination" id="pagination"></div>
+
+  <script>
+    // 전체 항목 리스트
+    const itemList = [
+      "항목 1",
+      "항목 2",
+      "항목 3",
+      "항목 4",
+      "항목 5",
+      "항목 6",
+      "항목 7",
+      "항목 8",
+      "항목 9",
+      "항목 10",
+      "항목 11",
+      "항목 12"
+    ];
+
+    // 페이지 당 항목 개수
+    const itemsPerPage = 5;
+
+    // 페이지네이션 함수
+    function displayItems(pageNumber) {
+      const startIndex = (pageNumber - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const itemsToDisplay = itemList.slice(startIndex, endIndex);
+
+      console.log(pageNumber)
+      console.log(startIndex)
+      console.log(endIndex)
+      console.log(itemsToDisplay)
+      // 항목 표시
+      const itemsElement = document.getElementById("items");
+      itemsElement.innerHTML = "";
+      itemsToDisplay.forEach(item => {
+        const itemElement = document.createElement("p");
+        itemElement.textContent = item;
+        itemsElement.appendChild(itemElement);
+      });
+
+      // 페이지네이션 링크 표시
+      const paginationElement = document.getElementById("pagination");
+      paginationElement.innerHTML = "";
+
+      const totalPages = Math.ceil(itemList.length / itemsPerPage);
+      for (let i = 1; i <= totalPages; i++) {
+        const link = document.createElement("a");
+        link.href = "#";
+        link.textContent = i;
+
+        if (i === pageNumber) {
+          link.style.fontWeight = "bold";
+        }
+
+        link.addEventListener("click", () => {
+          displayItems(i);
+        });
+
+        paginationElement.appendChild(link);
+      }
+    }
+
+    // 초기 페이지 로드
+    displayItems(1);
+  </script>
+</body>
+</html>

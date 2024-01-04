@@ -1,0 +1,590 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+  .view_wrap .tbl_view_style02 td {
+    vertical-align: middle;
+  }
+
+  .sub_tab .tab_tit li {
+    border-left: 2px solid #dbdbdb;
+  }
+
+  .quick_table_area {
+    position: relative;
+    margin: 50px 100px 0;
+    width: 850px;
+  }
+
+  .quick_table_area table {
+    width: 100%;
+    height: 120px;
+    margin-top: 30px;
+    border: 1px solid #e6e6e6;
+    font-size: 16px;
+  }
+
+  .quick_table_area th {
+    height: 60px;
+    vertical-align: center;
+    background: #f1f1f1;
+    font-weight: 500;
+    border: 1px solid #e6e6e6;
+  }
+
+  .quick_table_area td {
+    height: 60px;
+    vertical-align: center;
+    border: 1px solid #e6e6e6;
+  }
+
+  .quick_table_area input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .quick_table_area input[type="radio"] {
+    margin: 0 5px;
+  }
+
+  .quick_table_area input[type="button"] {
+    width: 300px;
+    height: 50px;
+    margin: 50px 275px;
+    border: 0;
+    font-size: 18px;
+    color: #FFFFFF;
+    background: #222222;
+    cursor: pointer;
+  }
+
+  #mark_input_area {
+    position: relative;
+    margin: 20px 0;
+  }
+
+  #mark_input_area table {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e6e6e6;
+    font-size: 16px;
+    border-top: 2px solid #dbdbdb
+  }
+
+  #mark_input_area table td {
+    height: 45px;
+  }
+
+  #mark_input_area table td input[type="text"] {
+    display: inline-block;
+    white-space: nowrap;
+    margin-top: 2px;
+    width: 20%;
+    border: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  #mark_input_area table td span {
+    display: inline-block;
+    width: 20%;
+    border: 0;
+    text-align: center;
+  }
+
+  .btn_area {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .btn_area input[type="button"] {
+    width: 300px;
+    height: 50px;
+    margin: 50px 5px;
+    border: 0;
+    font-size: 18px;
+    color: #FFFFFF;
+    background: #222222;
+    cursor: pointer;
+  }
+
+  .question_td {
+    border: 1px solid #e6e6e6;
+    background: #f1f1f1;
+    width: 11.11%;
+  }
+
+  .go_intro {
+    background: #ff4d56 !important;
+  }
+
+  .go_next {
+    background: #ff4d56 !important;
+  }
+
+  .answer_right_color {
+    color: #D1651B;
+  }
+
+  .answer_wrong_color {
+    color: #4DAEA9;
+  }
+</style>
+
+<!-- 회차선택 위 부분 S -->
+<div class="sub_cont">
+  <div class="container">
+    <div class="h2tit_wrap no_mb no_border">
+      <h2 class="h2tit">성적관리</h2>
+      <div class="right">
+      </div>
+    </div>
+
+    <div class="sub_tit_banner bg_banner_myreport">
+      <em>서킷 모의고사 빠른 채점</em>
+      <br>
+    </div>
+    <!-- 회차선택 위 부분 E -->
+    <div class="cs_wrap">
+      <div class="category_wrap">
+
+        <!-- 회차 선택 S -->
+        <div class="sel_text" style="margin:auto; width:300px;">
+          <strong style="margin:auto;">회차선택</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+          <select class="sel" id="mogosa_idx" name="mogosa_idx">
+
+          </select>
+        </div>
+        <!-- 회차 선택 E -->
+
+        <!-- 답안 입력 S -->
+        <div id="mark_input_area" style='display: none'>
+          <table id="eng_table">
+            <tbody>
+              <tr id="header_tr">
+                <td colspan="8" style="background: #f1f1f1;">
+                  <span id="titleSpan" style="font-weight:700; width:25%; text-align:right;">-</span>
+                </td>
+                <td style="background: #f1f1f1; text-align:center;">
+                  <span style="font-weight:700; width:100%;">
+                    <span id="english_score">0</span>점
+                  </span>
+                </td>
+              </tr>
+              <tr id="number_tr">
+                <?php
+                $iterateRange = range(0, 8);
+                foreach ($iterateRange as $num) :
+                  $startNum = ($num * 5) + 1;
+                  $endNum = $startNum + 4;
+                ?>
+                  <td align="center" class="question_td"><?= $startNum . '-' . $endNum ?></td>
+                <? endforeach ?>
+              </tr>
+              <tr id="answer_tr">
+                <?php
+                foreach ($iterateRange as $num) :
+                ?>
+                  <td style="padding:0 15px;">
+                    <div style="display: flex; height: 100%; border-bottom: 1px solid #e6e6e6;">
+                      <input type="text" class="short_answer" maxlength="1">
+                      <input type="text" class="short_answer" maxlength="1">
+                      <input type="text" class="short_answer" maxlength="1">
+                      <input type="text" class="short_answer" maxlength="1">
+                      <input type="text" class="short_answer" maxlength="1">
+                    </div>
+                  </td>
+                <? endforeach ?>
+              </tr>
+              <tr id="result_tr">
+                <?php
+                foreach ($iterateRange as $num) :
+                ?>
+                  <td style="padding:0 15px;">
+                    <div style="display: flex;">
+                      <span class="short_result"></span>
+                      <span class="short_result"></span>
+                      <span class="short_result"></span>
+                      <span class="short_result"></span>
+                      <span class="short_result"></span>
+                    </div>
+                  </td>
+                <? endforeach ?>
+              </tr>
+            </tbody>
+          </table>
+          <div class="btn_area">
+            <input type="button" class="go_intro" value="처음으로 >" onclick="if(confirm('처음부터 다시 입력하시겠습니까?')){resetProgress()}">
+            <input type="button" class="self_score_insert" value="점수 저장하기 >">
+          </div>
+        </div>
+        <!-- 답안 입력 E -->
+
+        <!-- 채점 결과 S -->
+        <div id="mark_result_area" class="quick_table_area" style="display:none;">
+          <h3 style="font-size:22px;">채점 결과</h3>
+          <table style="height:180px;">
+            <tbody>
+              <tr>
+                <th>시험명</th>
+                <th>원점수</th>
+                <th>예상 등급</th>
+              </tr>
+              <tr>
+                <td style="text-align:center;">제 7회 최종 파이널 모의고사</td>
+                <td style="text-align:center;">0</td>
+                <td style="text-align:center;">9등급</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class='btn_area'>
+            <input type="button" class='go_intro' value="처음으로 >" onclick="selectElReset()">
+            <input type="button" class='update' value="재채점 하러가기 >" onclick="reScoringArea()">
+          </div>
+        </div>
+        <!-- 채점 결과 E -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let ANSWERS = [];
+  let MARKED = [];
+
+  const shortAnswerEls = [...document.querySelectorAll('.short_answer')];
+  const shortResultEls = document.querySelectorAll('.short_result');
+  const scoreEl = document.getElementById('english_score');
+  const selectEl = document.getElementById('mogosa_idx');
+
+  /* get prev data */
+  const getPrevData = async (param) => {
+
+    try {
+      const req = await fetch(`/inc/getCircuitSelfData.php?key=${param}`, {
+        method: 'GET'
+      });
+      const statusCode = await req.status;
+
+      if (statusCode === 200) {
+        const res = await req.ok ? await req.json() : false;
+        if (!res) {
+          throw new Error('잘못된 요청입니다.');
+        }
+        return res;
+
+      } else {
+        switch (statusCode) {
+          case 204:
+            return false; /* no case */
+            break;
+          case 401:
+            throw new Error('로그인 후 이용해 주세요.');
+            break;
+          default:
+            throw new Error('잘못된 요청입니다. 관리자에게 문의해 주세요.');
+            break;
+        }
+      }
+
+    } catch (e) {
+
+      alert(e.message);
+      return false;
+    }
+  }
+  
+  /* common func */
+  const decryptAnswer = (ciphertext, key) => {
+    
+    const keyutf = CryptoJS.enc.Utf8.parse(key);
+    const bytes = CryptoJS.AES.decrypt(ciphertext, keyutf, {iv : keyutf});
+    return bytes.toString(CryptoJS.enc.Utf8).split('_')[1];
+}
+
+  const selectElReset = () => {
+    selectEl.value = '';
+    hideAllArea();
+  }
+
+  const resetProgress = () => {
+    for (const item of shortAnswerEls) {
+      item.value = '';
+    }
+    for (const item of shortResultEls) {
+      item.innerText = '';
+    }
+    MARKED = [];
+    scoreEl.innerText = 0;
+  }
+
+  const hideAllArea = () => {
+    document.getElementById('titleSpan').innerText = '';
+    document.getElementById('mark_input_area').style.display = 'none';
+    document.getElementById('mark_result_area').style.display = 'none';
+  }
+
+  const showInputArea = () => {
+    document.getElementById('titleSpan').innerText = selectEl[selectEl.selectedIndex].innerText;
+    document.getElementById('mark_input_area').style.display = '';
+    document.getElementById('mark_result_area').style.display = 'none';
+  }
+
+  const showResultArea = () => {
+    document.getElementById('mark_input_area').style.display = 'none';
+    document.getElementById('mark_result_area').style.display = '';
+  }
+
+  const fetchResultArea = (res) => {
+
+    const resultTd = document.querySelectorAll('#mark_result_area td');
+
+    resultTd[0].innerText = res.title;
+    resultTd[1].innerText = res.score;
+    resultTd[2].innerText = res.rank + '등급';
+  }
+
+  const reScoringArea = () => {
+    if (confirm('재채점 시 결과가 초기화 됩니다.\n재채점 하시겠습니까?')) {
+      resetProgress();
+      hideAllArea();
+      showInputArea();
+    }
+  }
+
+  /* init render */
+  const initRenderOption = (data) => {
+
+    selectEl.innerHTML = data.reduce((acc, {
+      mo_idx,
+      mo_time,
+      title
+    }) => {
+      return acc + `<option value="${mo_idx}_${mo_time}">${title}</option>`;
+    }, `<option value="">모의고사 회차를 선택해주세요</option>`);
+
+    selectEl.addEventListener('change', async (e) => {
+
+      /* fetch prev data (if exists) */
+      if (selectEl.value !== '') {
+        const prevData = await getPrevData(selectEl.value);
+        if (prevData) {
+          showResultArea();
+          fetchResultArea(prevData);
+        } else {
+          /* if not exists */
+          showInputArea();
+        }
+      } else {
+        /* if value is empty */
+        hideAllArea();
+      }
+
+      /* reset score input area */
+      resetProgress();
+    });
+  }
+
+  (async () => {
+    try {
+      const req = await fetch(`/inc/getCircuitSelfSet.php?`, {
+        method: 'GET'
+      });
+      const statusCode = await req.status;
+
+      if (statusCode === 200) {
+        const res = await req.ok ? await req.json() : false;
+        if (!res) {
+          throw new Error('잘못된 요청입니다.');
+        }
+
+        /* option render */
+        initRenderOption(res);
+
+        /* set globals */
+        res.forEach((item) => {
+          const key = `${item.mo_idx}_${item.mo_time}`;
+          ANSWERS[key] = item.answer;
+        });
+
+      } else {
+        switch (statusCode) {
+          case 401:
+            throw new Error('로그인 후 이용해 주세요.');
+            break;
+          case 417:
+            throw new Error('모의고사 데이터 오류입니다. 관리자에게 문의해 주세요.');
+            break;
+          default:
+            throw new Error('잘못된 요청입니다. 관리자에게 문의해 주세요.');
+            break;
+        }
+      }
+
+    } catch (e) {
+
+      alert(e.message);
+      return;
+    }
+  })();
+
+  /* score related func */
+  const makeScore = (value, index) => {
+
+    const mogoKey = selectEl.value;
+    if (!mogoKey) {
+      return false;
+    }
+
+    const answers = ANSWERS[mogoKey];
+    if (!answers) {
+      return false;
+    }
+
+    const {ans, iv, jum} = answers[index];
+    const decryptedAns = decryptAnswer(ans, iv);
+
+    if (decryptedAns == value) {
+      return jum;
+    } else {
+      return 0;
+    }
+  }
+
+  const calcScore = (scoreResult, index, init = false) => {
+
+    if (init) {
+      return 0;
+    }
+
+    MARKED[index] = scoreResult;
+    return MARKED.reduce((acc, cur) => {
+      return acc + cur;
+    }, 0);
+  }
+
+  /* show result toggle */
+  const toggleResult = (scoreResult, index) => {
+    shortResultEls[index].innerText = (scoreResult > 0) ? 'O' : 'X';
+    shortResultEls[index].style.color = (scoreResult > 0) ? '#D1651B' : '#4DAEA9';
+  }
+
+  /* answer keyup event */
+  const allowedAnswers = ['1', '2', '3', '4', '5'];
+  shortAnswerEls.map((item, index) => {
+    item.addEventListener('keyup', (e) => {
+
+      /* only move */
+      if (e.key === 'ArrowLeft') {
+        if (index > 0) {
+          shortAnswerEls[index - 1].focus();
+          return;
+        }
+      }
+      if (e.key === 'ArrowRight') {
+        if (index < 44) {
+          shortAnswerEls[index + 1].focus();
+          return;
+        }
+      }
+      if (e.key === 'Home') {
+        shortAnswerEls[0].focus();
+        return;
+      }
+      if (e.key === 'End') {
+        shortAnswerEls[44].focus();
+        return;
+      }
+
+      /* validtor */
+      if (!allowedAnswers.includes(e.key)) {
+        if (allowedAnswers.includes(e.target.value)) {
+          return;
+        }
+        e.target.value = '';
+        return;
+      } else {
+        e.target.value = e.key
+      }
+
+
+      /* scoring */
+      let value = e.target.value;
+      const scoreResult = makeScore(value, index);
+      if (scoreResult === false) {
+        alert('잘못된 요청입니다. 새로고침 후 다시 시도해 주세요.');
+        return;
+      }
+
+      /* calc total */
+      scoreEl.innerText = calcScore(scoreResult, index);
+
+      /* toggle result */
+      toggleResult(scoreResult, index);
+
+      /* focus move */
+      if (shortAnswerEls[index + 1] && value !== '') {
+        shortAnswerEls[index + 1].focus()
+      }
+
+    });
+  });
+
+  /* save */
+  document.querySelector('.self_score_insert').addEventListener('click', async () => {
+
+    if (confirm("저장하시겠습니까?\n※ 입력하지 않은 답안은 0점 처리됩니다.")) {
+
+      /* set values */
+      const answers = shortAnswerEls.map((item) => {
+        return item.value || '-';
+      }).join();
+
+      const params = {
+        'key': selectEl.value,
+        'answers': answers,
+        'score': scoreEl.innerText
+      };
+
+      /* request */
+      try {
+        const req = await fetch(`/inc/saveCircuitSelfResult.php`, {
+          method: 'POST',
+          body: JSON.stringify(params)
+        });
+        const statusCode = await req.status;
+
+        if (statusCode === 200) {
+          alert('저장되었습니다.');
+          // do closeup func
+          const prevData = await getPrevData(selectEl.value);
+          if (prevData) {
+            showResultArea();
+            fetchResultArea(prevData);
+          } else {
+            /* delay */
+            location.reload();
+          }
+        } else {
+          switch (statusCode) {
+            case 401:
+              throw new Error('로그인 후 이용해 주세요.');
+              break;
+            case 417:
+              throw new Error('모의고사 정답 데이터가 변경되었습니다.\n다시 시도해 주세요.');
+              break;
+            default:
+              throw new Error('잘못된 요청입니다. 관리자에게 문의해 주세요.');
+              break;
+          }
+        }
+
+      } catch (e) {
+
+        alert(e.message);
+        if (e.message === '로그인 후 이용해 주세요.') {
+          location.href = '/html/body/member/login?backpath=/html/body/myroom/circuit_self_score';
+        }
+
+      }
+    }
+  });
+</script>
